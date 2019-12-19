@@ -1,0 +1,44 @@
+{
+	"compilerOptions": {
+	  "target": "esnext",
+	  "module": "esnext",
+	  "strict": false,
+	  "importHelpers": true,
+	  "moduleResolution": "node",
+	  "experimentalDecorators": true,
+	  "emitDecoratorMetadata": true,
+	  "allowSyntheticDefaultImports": true,
+	  "sourceMap": true,
+	  "baseUrl": ".",
+	  "types": [],
+	  "paths": {
+		"@/*": [
+		  "src/*"
+		]
+	  },
+	  "lib": [
+		"es2017",
+		"dom",
+		"dom.iterable",
+		"scripthost"
+	  ]
+	},
+	"files": [
+		"./src/router.ts",
+		"./src/config/router.config.ts",
+		"./src/permission.ts"
+	],
+	"include": [
+	  "*.ts",
+	  "src/*.ts",
+	  "src/**/*.ts",
+	  "src/**/*.tsx",
+	  "src/**/*.vue",
+	  "tests/**/*.ts",
+	  "tests/**/*.tsx"
+	],
+	"exclude": [
+	  "node_modules"
+	]
+  }
+  
