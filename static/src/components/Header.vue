@@ -1,6 +1,6 @@
 <template>
-	<div id='header'>
-		<nav class='navbar navbar-expand-sm navbar-fixed-top m-nav'>
+	<div id='header' class='sticky-top'>
+		<nav class='navbar navbar-expand-sm m-nav'>
 
 			<button class='navbar-toggler' data-toggle='collapse' data-target='#collapse_target'>
 				<span class='navbar-toggler-icon'><img class='m-collapse-icon' src='../assets/icons/collapse.png'></span>

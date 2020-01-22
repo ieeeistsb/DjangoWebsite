@@ -13,6 +13,7 @@ export const constantRouterMap = [
 		component: PageLayout,
 		name: 'page_layout',
 		meta: { title: 'IEEE-IST'},
+		redirect: '/home',
 		children: [
 			{
 				path: 'home',
