@@ -21,6 +21,12 @@
 					</li>
 
 					<li class='nav-item'>
+						<a class='nav-link m-community-title' @click="moveTo('/repository')">
+							Repositório
+						</a>
+					</li>
+
+					<li class='nav-item'>
 						<a class='nav-link m-community-title' @click="moveTo('/team')">
 							Equipa
 						</a>
