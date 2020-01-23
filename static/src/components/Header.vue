@@ -6,19 +6,26 @@
 				<span class='navbar-toggler-icon'><img class='m-collapse-icon' src='../assets/icons/collapse.png'></span>
 			</button>
 
-			<a class='navbar-brand logo'><img src='../assets/logos/ieee-ist-logo.png' class='logo-img'></a>
+			<a class='navbar-brand logo' @click='goHome()'><img src='../assets/logos/ieee-ist-logo.png' class='logo-img'></a>
 
 			<div class='collapse navbar-collapse navbar-button' id='collapse_target'>
 
 				<ul class='navbar-nav m-nav-list ml-auto'>
 					<li class='nav-item dropdown' v-for='community in communities'>
-						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' href='#'>
+						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' @click="moveTo('/community')">
 							{{community.name}}
 						</a>
 						<div class='dropdown-menu'>
-							<a class='dropdown-item' v-for='topic in community.topics' href='#'>{{topic}}</a>
+							<a class='dropdown-item' v-for='topic in community.topics' @click="moveTo('/community/members')">{{topic}}</a>
 						</div>
 					</li>
+
+					<li class='nav-item'>
+						<a class='nav-link m-community-title' href=''>
+							Equipa
+						</a>
+					</li>
+
 				</ul>
 
 			</div>
@@ -45,6 +52,14 @@
 			{'name': 'Wie',  'topics': ['Membros']}
 		];
 
+		public moveTo(path) {
+			this.$router.push(path);
+		}
+
+		public goHome() {
+			this.$router.push('/home');
+		}
+
 	}
 </script>
 
@@ -68,6 +83,7 @@
 	#header .logo {
 		padding: 0;
 		margin-left: 25px;
+		cursor: pointer;
 	}
 
 	#header .logo-img {
@@ -83,7 +99,8 @@
 
 	#header .m-community-title {
 		color: gray;
-		margin: 15px;
+		margin: 20px;
+		cursor: pointer;
 	}
 
 	#header .m-community-title:hover {

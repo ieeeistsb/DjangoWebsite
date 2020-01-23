@@ -2,7 +2,7 @@
 import { PageLayout } from '../layouts/index.ts';
 
 // @ts-ignore
-import { NotFoundView, HomeView } from '../views/index.ts';
+import { NotFoundView, HomeView, CommunityView, AboutView, TeamView, MembersView, EventsView } from '../views/index.ts';
 
 export const asyncRouterMap = [];
 
@@ -20,6 +20,29 @@ export const constantRouterMap = [
 				component: HomeView,
 				meta: { title: 'Home'},
 			},
+			{
+				path: 'community',
+				component: CommunityView,
+				meta: { title: 'Community'},
+				redirect: '/community/about',
+				children: [
+					{
+						path: 'about',
+						component: AboutView,
+						meta: { title: 'Community'},
+					},
+					{
+						path: 'members',
+						component: MembersView,
+						meta: { title: 'Members'},
+					},
+				]
+			},
+			{
+				path: 'team',
+				component: TeamView,
+				meta: { title: 'Team'},
+			}
 		]
 	},
 	{

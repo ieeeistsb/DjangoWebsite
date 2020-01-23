@@ -42,25 +42,7 @@
 		</h1>
 		<p>&nbsp;</p>
 
-		<div id='eventsCarousel' class='carousel slide' data-ride='carousel'>
-			
-			<div class='carousel-inner'>
-				<div v-bind:class="'carousel-item' + t[0].name == events.name ? ' active' :''" v-for='t in trio'>
-					
-					<div class='card m-events-card' v-for='event in t'>
-						<img v-bind:src="'/static/public/assets/cs/' + event.img" class='card-img-top'>
-						<div class='card-body'>
-							<h5 class='card-title'>{{event.name}}</h5>
-							<p class='card-text'>{{event.description}}</p>
-							<a href='#' class='btn btn-primary'>Saber Mais</a>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
+		<events-carousel></events-carousel>
 
 	</div>
 </template>
@@ -68,47 +50,16 @@
 <script lang='ts'>
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
-	interface Event {
-		name: string;
-		description: string;
-		img: string;
-	}
+	import EventsCarousel from '../components/EventsCarousel.vue';
 
-	@Component({})
+ 	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class HomeView extends Vue {
-
-		public events: Event[] = [
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'}
-		];
-
-		public trio: Event[][] = [];
-
-		public generateCarousel() {
-
-			let n: number = 0;
-			let c: number = 0;
-
-			while(c < this.events.length) {
-				this.trio.push([]);
-				for (let i = 0; i < 3 && c < this.events.length; i++) {
-					console.log(this.trio[n]);
-					console.log(this.events[c]);
-					this.trio[n].push(this.events[c++]);
-				}
-				n++;
-			}
-
-		}
-
-		public beforeMount() {
-			this.generateCarousel();
-		}
 
 	}
 </script>
 
 <style scoped>
+
 	.home-img {
 		width: 100%;
 		height: auto;
@@ -126,20 +77,4 @@
 		margin-right: 10%;
 	}
 
-	#eventsCarousel {
-		height: 150px;
-		margin-left: 10%;
-		margin-right: 10%;
-	}
-
-	.m-events-img {
-		width: 100%;
-		height: 50px;
-	}
-
-	.m-events-card {
-		width: 18rem;
-		margin: 4%;
-		display: inline-block;
-	}
 </style>
