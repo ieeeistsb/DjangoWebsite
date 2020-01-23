@@ -4,7 +4,7 @@
 
 		<router-view/>
 
-		<!--footer-->
+		<site-footer/>
 	</div>
 </template>
 
@@ -12,8 +12,9 @@
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
 	import Header from '../components/Header.vue';
+	import Footer from '../components/Footer.vue';
 
-	@Component({ components: { 'site-header': Header, }, })
+	@Component({ components: { /*'site-header': Header, */'site-footer': Footer}, })
 	export default class PageLayout extends Vue {
 
 	}
