@@ -21,7 +21,7 @@
 					</li>
 
 					<li class='nav-item'>
-						<a class='nav-link m-community-title' href=''>
+						<a class='nav-link m-community-title' @click="moveTo('/team')">
 							Equipa
 						</a>
 					</li>

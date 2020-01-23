@@ -11,7 +11,7 @@
 	@Component({})
 	export default class EventsView extends Vue {
 
- 	}
+	}
 
 </script>
 

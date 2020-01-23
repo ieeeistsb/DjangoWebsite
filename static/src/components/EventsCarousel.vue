@@ -4,7 +4,7 @@
 			
 		<div class='carousel-inner'>
 
-			<div v-bind:class="'carousel-item' + index === 0 ? ' active' :''" v-for='(p, index) in poker'>
+			<div v-bind:class="returnClass(index)" v-for='(p, index) in poker'>
 					
 				<div class='card m-events-card' v-for='event in p'>
 					<img v-bind:src="'/static/public/assets/cs/' + event.img" class='card-img-top m-card-img'>
@@ -18,6 +18,15 @@
 			</div>
 
 		</div>
+
+		<a class="carousel-control-prev" href="#eventsCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#eventsCarousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 
 	</div>
 
@@ -65,6 +74,14 @@
 
 		public beforeMount() {
 			this.generateCarousel();
+		}
+
+		public returnClass(idx) : string {
+
+			if (idx == 0)
+				return "carousel-item active";
+
+			return "carousel-item";
 		}
 
 	}

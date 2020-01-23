@@ -3,13 +3,22 @@
 		<div id='imgsCarousel' class='carousel slide' data-ride='carousel'>
 			
 			<div class='carousel-inner'>
-				<div v-bind:class="'m-item carousel-item' + img == images[0] ? 'active' : ''" v-for='img in images'>
+				<div v-bind:class="returnClass(index)" v-for='(img, index) in images'>
 
-					<img v-bind:src="'/static/public/assets/cs/' + img" class='card-img-top'>
+					<img v-bind:src="'/static/public/assets/cs/' + img" class='card-img-top d-block w-100'>
 
 				</div>
 
 			</div>
+
+			<a class="carousel-control-prev" href="#imgsCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#imgsCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 
 		</div>
 
@@ -55,6 +64,14 @@
 	export default class AboutView extends Vue {
 
 		public images: string[] = ['header.jpg'];
+
+		public returnClass(idx) : string {
+
+			if (idx == 0)
+				return "m-item carousel-item active";
+
+			return "m-item carousel-item";
+		}
 
 	}
 
