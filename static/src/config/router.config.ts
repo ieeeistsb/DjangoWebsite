@@ -36,6 +36,11 @@ export const constantRouterMap = [
 						component: MembersView,
 						meta: { title: 'Members'},
 					},
+					{
+						path: 'events',
+						component: EventsView,
+						meta: { title: 'Events'},
+					}
 				]
 			},
 			{
@@ -51,7 +56,7 @@ export const constantRouterMap = [
 		]
 	},
 	{
-		path: '/404',
+		path: '*',
 		name: 'http404',
 		component: NotFoundView,
 		meta: { title: 'Page Not Found', },

@@ -39,7 +39,7 @@
 
 		<div v-for='book in books'>
 
-
+			<book-card :book='book'/>
 			
 		</div>
 
@@ -50,6 +50,8 @@
 
 	import { Vue, Component } from 'vue-property-decorator';
 
+	import BookCard from '../components/BookCard.vue';
+
 	interface Book {
 		title: string;
 		author: string;
@@ -59,7 +61,7 @@
 		contact: string;
 	}
 
-	@Component({})
+	@Component({ components: { 'book-card': BookCard, }, })
 	export default class RepositoryView extends Vue {
 
 		public books: Book[] = [
