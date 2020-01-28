@@ -2,12 +2,13 @@ from django.db import models
 from typing import List
 
 from ..entities import Community
-from ..models import CommunityModel
 
-def get_communities() -> List[Community]:
+from ..interfaces import DBInterface
+
+def get_communities(db_handler : DBInterface) -> List[Community]:
 	
 	try:
-		communities = [Community(c.id, c.name) for c in CommunityModel.objects.all()]
+		communities = db_handler.fetch_communities()
 		return communities
 	
 	except Exception as e:

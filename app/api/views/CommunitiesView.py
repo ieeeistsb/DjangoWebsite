@@ -3,24 +3,28 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ..serializers import GetCommunitiesSerializer
+from ..io import GetCommunitiesIO
 
-from ...models   import CommunityModel
 from ...entities import Community
 from ...usecases import get_communities
+
+#from ..db import DBHandler
+from ..mocks import MockDBHandler as DBHandler
 
 class CommunitiesView(APIView):
 
 	def get(self, request):
-		ioSerializer = GetCommunitiesSerializer(request)
-		ioSerializer.requestSerializer()
+		io_handler = GetCommunitiesIO(request)
+		db_handler = DBHandler(request)
+
+		io_handler.requestSerializer()
 
 		try:
 			#call usecase
-			communities = get_communities()
+			communities = get_communities(db_handler)
 
 		except Exception as e:
-			return ioSerializer.errorSerializer(e)
+			return io_handler.errorSerializer(e)
 
-		return ioSerializer.responseSerializer(communities)
+		return io_handler.responseSerializer(communities)
 

@@ -6,7 +6,7 @@ from rest_framework import status
 
 import json
 
-class GetCommunitiesSerializer:
+class GetCommunitiesIO:
 
 	def __init__(self, request):
 		self.request = request
