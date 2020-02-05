@@ -1,0 +1,81 @@
+{
+  "_args": [
+    [
+      "mdbootstrap",
+      "/home/bruno/IEEE/DjangoWebsite/static"
+    ]
+  ],
+  "_from": "mdbootstrap@latest",
+  "_hasShrinkwrap": false,
+  "_id": "mdbootstrap@4.12.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/mdbootstrap",
+  "_nodeVersion": "12.13.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/mdbootstrap_4.12.0_1579506409476_0.046202946909223996"
+  },
+  "_npmUser": {
+    "email": "lubiankamateusz@gmail.com",
+    "name": "xiedzu1993"
+  },
+  "_npmVersion": "6.12.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "mdbootstrap",
+    "raw": "mdbootstrap",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/mdbootstrap/-/mdbootstrap-4.12.0.tgz",
+  "_shasum": "0849c6ffa2cdd9f432ede5f17d9c8b66aee7d341",
+  "_shrinkwrap": null,
+  "_spec": "mdbootstrap",
+  "_where": "/home/bruno/IEEE/DjangoWebsite/static",
+  "author": {
+    "name": "MDBootstrap"
+  },
+  "bugs": {
+    "url": "https://github.com/mdbootstrap/bootstrap-material-design/issues"
+  },
+  "dependencies": {},
+  "description": "<p align=\"center\">\r   <a href=\"https://mdbootstrap.com/docs/jquery/getting-started/download/\">\r     <img src=\"https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png\">\r   </a>\r </p>",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "fileCount": 122,
+    "integrity": "sha512-+X4x63tE96zpVOcRlVUGdcR65M9Ud+/l1TvdmcwUjEGo3ktn9TO3e6S3DBLTvchO9U5eKuJh/MIWIGac7+569g==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeJVrqCRA9TVsSAnZWagAAl4cP/0QhYa8QK6iHs4ZlXbka\nFU74i0vHte6hAwtof74r2XySxyRI2w8gmSJXR08wnN822T7CyX3sePL38yFf\nQnJ8yc7lbRJCq6uG21y5kum80iJAtEiBcV2PidMvZt2G2j7bk+0tKR1WGRUN\nykXymsx7QGiTfStDg2sVvIV1YfxleYlUbvenECo6/OQEIbZu2nMOS/q6si+c\n2bIyFd4TGNmR1n/8QxdphFJdcoRas4LNAfpIZeWXd9DoQzTf5lkVpg1TsBzx\nWQAzeDr3sde1BKtLPn0p41TG3VHI82l4lUBEYnprGciowoTI7bRXi3IYTF7g\neu/XMI9ATYUQwtX3W5a8kZf8Xw8+fALN8On8ga+m9cgHfGp3ncKWKTSkTYxu\nh6AwDcxhx3H92h/mGBViuUok0Mn7mVvsKEwxW938HgEdPc1OzGIRclx+mwXt\nsaIjqEdo4iS8JvrKDvSGcxhMXsHrQAEtdsGXGkUkcp1IbEAOjBTrlnjskIWM\ndjcSKnQ87isI+hJTGOlegwJusj7KyULx28v4dTcHcf/yMnQP1mrqqqqDKsp8\nDV3AC2Z3ck7fIWIK6JO4VQ4jY7rhYPjUcXrAm/YmlkiKu6W2ABH0InKW0vf4\nVFRVbv7gDaTB6eiUWAdj1csPOyto/6MpF8J3GV9jGrNjdkJ0XuWP5aITMudG\nxhh2\r\n=BCXs\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "0849c6ffa2cdd9f432ede5f17d9c8b66aee7d341",
+    "tarball": "https://registry.npmjs.org/mdbootstrap/-/mdbootstrap-4.12.0.tgz",
+    "unpackedSize": 5741701
+  },
+  "gitHead": "43ce2d2b3223890f026d85b09a1f3c63fcc0b3fa",
+  "homepage": "https://github.com/mdbootstrap/bootstrap-material-design#readme",
+  "license": "MIT",
+  "main": "js/mdb.min.js",
+  "maintainers": [
+    {
+      "name": "mattonit",
+      "email": "bartlomiej.malanowski@hotmail.com"
+    },
+    {
+      "name": "mdbootstrap",
+      "email": "support@mdbootstrap.com"
+    }
+  ],
+  "name": "mdbootstrap",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdbootstrap/bootstrap-material-design.git"
+  },
+  "version": "4.12.0"
+}

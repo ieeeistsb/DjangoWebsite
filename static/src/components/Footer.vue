@@ -1,7 +1,7 @@
 <template>
 	
 	<!-- Footer -->
-	<footer id='footer' class="page-footer mdb-color pt-4">
+	<footer id='footer' class="page-footer pt-4">
 
         <!-- Footer Links -->
             <div class="container text-center text-md-left">
@@ -141,8 +141,8 @@
 <style scoped>
     
     footer {
-        bottom: 0;
-        position: absolute;
+        background: steelblue;
+        position: relative;
         width: 100%;
     }
 
