@@ -29,29 +29,29 @@ export const constantRouterMap = [
 					{
 						path: 'about',
 						component: AboutView,
-						meta: { title: 'Community'},
+						meta: { title: 'Community', type: 'about', },
 					},
 					{
 						path: 'members',
 						component: MembersView,
-						meta: { title: 'Members'},
+						meta: { title: 'Members', type: 'members', },
 					},
 					{
 						path: 'events',
 						component: EventsView,
-						meta: { title: 'Events'},
+						meta: { title: 'Events', type: 'events', },
 					}
 				]
 			},
 			{
 				path: 'repository',
 				component: RepositoryView,
-				meta: { title: 'Repository'},
+				meta: { title: 'Repository', type: 'repository', },
 			},
 			{
 				path: 'team',
 				component: TeamView,
-				meta: { title: 'Team'},
+				meta: { title: 'Team', type: 'team', },
 			}
 		]
 	},
