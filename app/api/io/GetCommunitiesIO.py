@@ -20,14 +20,20 @@ class GetCommunitiesIO:
 		communities_list = []
 		
 		for c in communities:
+			pages = [{
+					"type" : p.name,
+					"name" : p.name
+				} for p in c.pages]
+
 			communities_list.append({
 				"name" : c.name,
-				"pages" : ["members", "about"]
+				"tag" : c.tag,
+				"pages" : pages
 				})
 		
-		response = str(communities_list)
+		response = {"communities" : communities_list}
 		
-		return Response(response)
+		return JsonResponse(response)
 
 	def errorSerializer(self, error):
 		return Response(str(error), status=status.HTTP_400_BAD_REQUEST)

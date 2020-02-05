@@ -13,10 +13,10 @@
 				<ul class='navbar-nav m-nav-list ml-auto'>
 					<li class='nav-item dropdown' v-for='community in communities'>
 						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' @click="moveTo('/community')">
-							{{community.name}}
+							{{community.tag}}
 						</a>
 						<div class='dropdown-menu'>
-							<a class='dropdown-item' v-for='topic in community.topics' @click="moveTo('/community/members')">{{topic}}</a>
+							<a class='dropdown-item' v-for='page in community.pages' @click="moveTo('/community/members')">{{page.name}}</a>
 						</div>
 					</li>
 
@@ -43,20 +43,20 @@
 <script lang='ts'>
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
-	interface Community {
-		name: string;
-		topics: string[];
-	}
+	import { Community } from '../api/entities.ts';
+
+	import CommunityApi from '../api/CommunityApi.ts';
   
 	@Component({})
 	export default class Header extends Vue {
 
-		public communities: Community[] = [
-			{'name': 'CS',   'topics': ['Membros', 'Eventos', 'Mais']},
-			{'name': 'IAS',  'topics': ['Membros', 'Eventos']},
-			{'name': 'EMBS', 'topics': ['Membros']},
-			{'name': 'Wie',  'topics': ['Membros']}
-		];
+		public communities: Community[] = [];
+
+		public beforeMount() {
+			CommunityApi.get_communities()
+				.then((resp) => this.communities = resp)
+				.catch((err) => console.error(err));
+		}
 
 		public moveTo(path) {
 			this.$router.push(path);

@@ -63,8 +63,6 @@
 			while(c < this.events.length) {
 				this.poker.push([]);
 				for (let i = 0; i < 4 && c < this.events.length; i++) {
-					console.log(this.poker[n]);
-					console.log(this.events[c]);
 					this.poker[n].push(this.events[c++]);
 				}
 				n++;
