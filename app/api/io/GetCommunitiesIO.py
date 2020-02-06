@@ -21,7 +21,7 @@ class GetCommunitiesIO:
 		
 		for c in communities:
 			pages = [{
-					"type" : p.name,
+					"type" : p.type,
 					"name" : p.name
 				} for p in c.pages]
 
