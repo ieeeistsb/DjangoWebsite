@@ -6,7 +6,7 @@
 				<span class='navbar-toggler-icon'><img class='m-collapse-icon' src='../assets/icons/collapse.png'></span>
 			</button>
 
-			<a class='navbar-brand logo' @click='goHome()'><img src='../assets/logos/ieee-ist-logo.png' class='logo-img'></a>
+			<a class='navbar-brand logo' @click="moveTo('/home')"><img src='../assets/logos/ieee-ist-logo.png' class='logo-img'></a>
 
 			<div class='collapse navbar-collapse navbar-button' id='collapse_target'>
 
@@ -16,7 +16,7 @@
 							{{community.tag}}
 						</a>
 						<div class='dropdown-menu'>
-							<a class='dropdown-item' v-for='page in community.pages' @click="moveTo('/community/members')">{{page.name}}</a>
+							<a class='dropdown-item' v-for='page in community.pages' @click="moveTo('/community/' + page.type)">{{page.name}}</a>
 						</div>
 					</li>
 
@@ -59,11 +59,8 @@
 		}
 
 		public moveTo(path) {
-			this.$router.push(path);
-		}
-
-		public goHome() {
-			this.$router.push('/home');
+			this.$router.push(path)
+				.catch((err) => { /* Ignore */ });
 		}
 
 	}
