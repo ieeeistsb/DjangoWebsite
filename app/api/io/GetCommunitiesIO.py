@@ -28,6 +28,7 @@ class GetCommunitiesIO:
 			communities_list.append({
 				"name" : c.name,
 				"tag" : c.tag,
+				"description": c.description,
 				"pages" : pages
 				})
 		

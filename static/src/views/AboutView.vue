@@ -27,6 +27,14 @@
 		<div>
 
 			<p class='m-about-text'>
+				<span>{{description}}</span>
+			</p>
+
+		</div>
+
+		<div>
+
+			<p class='m-about-text'>
 				<span>O IEEE Computer Society é a maior sociedade internacional na área das Tecnologias da informação, dedicada a contribuir para o progresso desta área, através do aperfeiçoamento das capacidades da comunidade informática.
 				</span>
 			</p>
@@ -60,10 +68,16 @@
 
 	import EventsCarousel from '../components/EventsCarousel.vue';
 
+	import app from '../api/store/modules/app.ts';
+
+	import communities from '../api/store/modules/communities.ts';
+
 	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class AboutView extends Vue {
 
 		public images: string[] = ['header.jpg'];
+
+		public description: string = '';
 
 		public returnClass(idx) : string {
 
@@ -71,6 +85,18 @@
 				return "m-item carousel-item active";
 
 			return "m-item carousel-item";
+		}
+
+		public beforeMount() {
+			/*let c = communities.getCommunities;
+			console.debug(c);
+			c.forEach((com) => {
+				console.debug(com);
+				if (com.tag == app.activeCommunity) {
+					this.description = com.description;
+				}
+			});
+			console.debug(this.description);*/
 		}
 
 	}

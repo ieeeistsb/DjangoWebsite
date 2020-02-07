@@ -7,10 +7,11 @@ from . import Page
 @dataclass
 class Community:
 
-	__slots__ = '_name', '_tag', '_pages'
+	__slots__ = '_name', '_tag', '_description', '_pages'
 
 	_name : str
 	_tag : str
+	_description : str
 	_pages : List[Any]
 	
 	@property
@@ -20,6 +21,11 @@ class Community:
 	@property
 	def tag(self):
 		return self._tag
+
+	@property
+	def description(self):
+		return self._description
+	
 
 	@property
 	def pages(self):

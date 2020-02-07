@@ -28,7 +28,7 @@ class MockDBHandler(DBInterface):
 
 				pages.append(self.fetch_page(page_type, lang))
 
-			communities.append(Community(community.get('name'), community.get('tag'), pages))
+			communities.append(Community(community.get('name'), community.get('tag'), self.fetch_content(community.get('description'), lang), pages))
 
 		return communities
 

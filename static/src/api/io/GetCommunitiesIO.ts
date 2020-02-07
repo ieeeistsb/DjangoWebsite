@@ -15,6 +15,7 @@ export default class GetCommunitiesIO {
 			communities_list.push({
 				'name' : community.name,
 				'tag' : community.tag,
+				'description' : community.description,
 				'pages': community.pages,
 			} as Community);
 		});

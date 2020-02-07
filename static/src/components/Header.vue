@@ -12,11 +12,11 @@
 
 				<ul class='navbar-nav m-nav-list ml-auto'>
 					<li class='nav-item dropdown' v-for='community in communities'>
-						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' @click="moveTo('/community')">
+						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' @click="changeActiveCommunity(community.tag);moveTo('/community')">
 							{{community.tag}}
 						</a>
 						<div class='dropdown-menu'>
-							<a class='dropdown-item' v-for='page in community.pages' @click="moveTo('/community/' + page.type)">{{page.name}}</a>
+							<a class='dropdown-item' v-for='page in community.pages' @click="changeActiveCommunity(community.tag);moveTo('/community/' + page.type)">{{page.name}}</a>
 						</div>
 					</li>
 
@@ -46,6 +46,9 @@
 	import { Community } from '../api/entities.ts';
 
 	import CommunityApi from '../api/CommunityApi.ts';
+
+	import app from '../api/store/modules/app.ts';
+	import communities from '../api/store/modules/communities.ts'
   
 	@Component({})
 	export default class Header extends Vue {
@@ -54,11 +57,19 @@
 
 		public beforeMount() {
 			CommunityApi.get_communities()
-				.then((resp) => this.communities = resp)
+				.then((resp) => {
+					this.communities = resp;
+					this.communities.forEach((community) => communities.addCommunity(community));
+				})
 				.catch((err) => console.error(err));
 		}
 
-		public moveTo(path) {
+		public changeActiveCommunity(tag: string) {
+			if (tag != app.activeCommunity)
+				app.toggleActiveCommunity(tag);
+		}
+
+		public moveTo(path: string) {
 			this.$router.push(path)
 				.catch((err) => { /* Ignore */ });
 		}

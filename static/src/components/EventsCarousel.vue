@@ -11,7 +11,7 @@
 					<div class='card-body'>
 						<h5 class='card-title'>{{event.name}}</h5>
 						<p class='card-text'>{{event.description}}</p>
-						<a href='#' class='btn btn-primary'>Saber Mais</a>
+						<a href='#' class='btn btn-primary m-btn'>Saber Mais</a>
 					</div>
 				</div>
 
@@ -88,7 +88,7 @@
 <style scoped>
 
 	#eventsCarousel {
-		height: 150px;
+		height: 450px;
 		margin-left: 10%;
 		margin-right: 10%;
 	}
@@ -107,6 +107,10 @@
 	.m-card-img {
 		width: 286px;
 		height: 160px;
+	}
+
+	.m-btn {
+		background-color: steelblue;
 	}
 
 </style>
