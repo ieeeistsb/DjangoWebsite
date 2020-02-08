@@ -6,6 +6,12 @@ import { constantRouterMap } from './config/router.config.ts';
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 
+// @ts-ignore
+import AppModule from './api/store/modules/app.ts';
+
+// @ts-ignore
+import { getStore } from './api/store/handler.ts';
+
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 const whiteList = ['home']; // no redirect whitelist
@@ -22,9 +28,12 @@ router.beforeEach((to, from, next) => {
 
 	NProgress.start(); // start progress bar
 
-	if (to.fullPath != from.fullPath) {
-		next();
-	}
+	//if (to.fullPath.includes('community')) {
+	//	if (!getStore('app') || !getStore('app').activeCommunity || !to.params.tag)
+	//		next('/home');
+	//}
+
+	next();
 
 });
 

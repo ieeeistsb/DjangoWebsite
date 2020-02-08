@@ -7,7 +7,7 @@ export interface App {
 export interface Community {
 	name: string;
 	tag: string;
-	description ?: string;
+	description ?: string[];
 	pages: Page[];
 }
 

@@ -21,14 +21,15 @@ export const constantRouterMap = [
 				meta: { title: 'Home'},
 			},
 			{
-				path: 'community',
+				path: 'community/:tag',
 				component: CommunityView,
 				meta: { title: 'Community'},
-				redirect: '/community/about',
+				redirect: '/community/:tag/about',
 				children: [
 					{
 						path: 'about',
 						component: AboutView,
+						props: { name: 'community', },
 						meta: { title: 'Community', type: 'about', },
 					},
 					{

@@ -11,7 +11,7 @@ class Community:
 
 	_name : str
 	_tag : str
-	_description : str
+	_description : List[str]
 	_pages : List[Any]
 	
 	@property
@@ -33,11 +33,12 @@ class Community:
 	
 	@classmethod
 	def from_dict(cls, obj):
-		return Community(obj['id'], obj['name'], obj['pages'])
+		return Community(obj['tag'], obj['name'], obj['description'], obj['pages'])
 
 	def dict(self):
 		return {
-			'id': self.id,
+			'tag': self.id,
 			'name': self.name,
+			'description': self.description,
 			'pages' : self.pages
 		}

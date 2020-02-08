@@ -26,27 +26,8 @@
 
 		<div>
 
-			<p class='m-about-text'>
-				<span>{{description}}</span>
-			</p>
-
-		</div>
-
-		<div>
-
-			<p class='m-about-text'>
-				<span>O IEEE Computer Society é a maior sociedade internacional na área das Tecnologias da informação, dedicada a contribuir para o progresso desta área, através do aperfeiçoamento das capacidades da comunidade informática.
-				</span>
-			</p>
-
-			<p class='m-about-text'>
-				<span>Como membros deste student chapter no IEEE-IST, temos o objetivo de dar aos estudantes do IST ferramentas para o desenvolvimento de capacidades, que poderão ajudar no seu crescimento enquanto profissionais na área das Tecnologias da Informação, propondo-lhes iniciativas que o promovam.
-				</span>
-			</p>
-
-			<p class='m-about-text'>
-				<span>Com esta finalidade, temos vindo a oferecer workshops não só teóricos como práticos,de forma a aprofundar o conhecimento dos alunos de Informática; realizar competições dentro do IST, para criar e desenvolver o interesse dos estudantes e estabelecer uma plataforma que permita aos alunos pôr em prática as capacidades desenvolvidas.
-				</span>
+			<p class='m-about-text' v-for='paragraph in community.description'>
+				<span>{{paragraph}}</span>
 			</p>
 
 		</div>
@@ -64,20 +45,27 @@
 
 <script lang='ts'>
 
-	import { Vue, Component } from 'vue-property-decorator';
+	import { Vue, Component, Prop } from 'vue-property-decorator';
 
 	import EventsCarousel from '../components/EventsCarousel.vue';
 
-	import app from '../api/store/modules/app.ts';
+	import { Community } from '../api/entities.ts';
 
-	import communities from '../api/store/modules/communities.ts';
+	import AppModule from '../api/store/modules/app.ts';
+
+	import CommunityModule from '../api/store/modules/community.ts';
 
 	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class AboutView extends Vue {
 
+		private app_module: AppModule = new AppModule();
+
+		@Prop({ required : true, })
+		public community: Community;
+
 		public images: string[] = ['header.jpg'];
 
-		public description: string = '';
+		public description: string[] = [];
 
 		public returnClass(idx) : string {
 
@@ -87,16 +75,21 @@
 			return "m-item carousel-item";
 		}
 
-		public beforeMount() {
-			/*let c = communities.getCommunities;
-			console.debug(c);
-			c.forEach((com) => {
-				console.debug(com);
-				if (com.tag == app.activeCommunity) {
-					this.description = com.description;
-				}
-			});
-			console.debug(this.description);*/
+		public mounted() {
+
+			console.debug(this.community);
+
+			/*console.debug(this.community);
+
+			this.description = this.community.description;*/
+
+			/*let community_module = null;
+
+			if (this.app_module.activeCommunity != '')
+				community_module = new CommunityModule(this.app_module.activeCommunity);
+
+			this.description = (community_module && community_module.description) || [];*/
+
 		}
 
 	}

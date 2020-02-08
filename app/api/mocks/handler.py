@@ -28,7 +28,13 @@ class MockDBHandler(DBInterface):
 
 				pages.append(self.fetch_page(page_type, lang))
 
-			communities.append(Community(community.get('name'), community.get('tag'), self.fetch_content(community.get('description'), lang), pages))
+			description = []
+
+			for paragraph in community.get('description'):
+
+				description.append(self.fetch_content(paragraph, lang))
+
+			communities.append(Community(community.get('name'), community.get('tag'), description, pages))
 
 		return communities
 
