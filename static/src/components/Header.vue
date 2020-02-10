@@ -12,11 +12,11 @@
 
 				<ul class='navbar-nav m-nav-list ml-auto'>
 					<li class='nav-item dropdown' v-for='community in communities'>
-						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' @click="changeActiveCommunity(community.tag);moveTo('/community/' + community.tag)">
+						<a class='nav-link dropdown-toggle m-community-title' data-toggle='dropdown' @click='moveToCommunity(community.tag, null)'>
 							{{community.tag}}
 						</a>
 						<div class='dropdown-menu'>
-							<a class='dropdown-item' v-for='page in community.pages' @click="changeActiveCommunity(community.tag);moveTo('/community/' + community.tag + '/' + page.type)">{{page.name}}</a>
+							<a class='dropdown-item' v-for='page in community.pages' @click='moveToCommunity(community.tag, page.type)'>{{page.name}}</a>
 						</div>
 					</li>
 
@@ -41,13 +41,11 @@
 </template>
 
 <script lang='ts'>
-	import { Vue, Component, Prop } from 'vue-property-decorator';
+	import { Vue, Component } from 'vue-property-decorator';
 
 	import { Community } from '../api/entities.ts';
 
 	import CommunityApi from '../api/CommunityApi.ts';
-
-	import AppModule from '../api/store/modules/app.ts';
 
 	import CommunityModule from '../api/store/modules/community.ts';
   
@@ -55,8 +53,6 @@
 	export default class Header extends Vue {
 
 		public communities: Community[] = [];
-
-		private app_store: AppModule = new AppModule();
 
 		public beforeMount() {
 			CommunityApi.get_communities()
@@ -67,15 +63,29 @@
 				.catch((err) => console.error(err));
 		}
 
-		public changeActiveCommunity(tag: string) {
-			//if (tag != this.app_store.activeCommunity)
-			//	this.app_store.toggleActiveCommunity(tag);
-			this.$emit('switchCommunity', tag);
-		}
-
 		public moveTo(path: string) {
+
 			this.$router.push(path)
 				.catch((err) => { /* Ignore */ });
+		}
+
+		public moveToCommunity(tag: string, type: string) {
+
+			let toPath;
+
+			if (type) {
+
+				toPath = '/community/' + tag + '/' + type;
+
+			} else {
+				
+				toPath = '/community/' + tag;
+
+			}
+
+			this.$router.push({path: toPath, params: { tag: tag, }})
+				.catch((err) => { /* Ignore */ });
+
 		}
 
 	}

@@ -15,7 +15,6 @@ export default function Initializer() {
 	const defaultApp: App = {
 		device: config.device,
 		lang: config.lang,
-		active_community: config.active_community,
 	};
 
 	app_module.setApp(defaultApp);

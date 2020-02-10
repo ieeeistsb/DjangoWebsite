@@ -6,7 +6,6 @@ import { NotFoundView, HomeView, CommunityView, AboutView, TeamView, MembersView
 
 export const asyncRouterMap = [];
 
-
 export const constantRouterMap = [
 	{
 		path: '',
@@ -23,23 +22,26 @@ export const constantRouterMap = [
 			{
 				path: 'community/:tag',
 				component: CommunityView,
+				props: true,
 				meta: { title: 'Community'},
 				redirect: '/community/:tag/about',
 				children: [
 					{
 						path: 'about',
 						component: AboutView,
-						props: { name: 'community', },
+						props: true,
 						meta: { title: 'Community', type: 'about', },
 					},
 					{
 						path: 'members',
 						component: MembersView,
+						props: true,
 						meta: { title: 'Members', type: 'members', },
 					},
 					{
 						path: 'events',
 						component: EventsView,
+						props: true,
 						meta: { title: 'Events', type: 'events', },
 					}
 				]

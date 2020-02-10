@@ -26,7 +26,7 @@
 
 		<div>
 
-			<p class='m-about-text' v-for='paragraph in community.description'>
+			<p class='m-about-text' v-for='paragraph in getDescription()'>
 				<span>{{paragraph}}</span>
 			</p>
 
@@ -49,23 +49,15 @@
 
 	import EventsCarousel from '../components/EventsCarousel.vue';
 
-	import { Community } from '../api/entities.ts';
-
-	import AppModule from '../api/store/modules/app.ts';
-
 	import CommunityModule from '../api/store/modules/community.ts';
 
 	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class AboutView extends Vue {
 
-		private app_module: AppModule = new AppModule();
-
-		@Prop({ required : true, })
-		public community: Community;
+		@Prop({required: true})
+		public tag: string;
 
 		public images: string[] = ['header.jpg'];
-
-		public description: string[] = [];
 
 		public returnClass(idx) : string {
 
@@ -75,21 +67,11 @@
 			return "m-item carousel-item";
 		}
 
-		public mounted() {
+		public getDescription() {
 
-			console.debug(this.community);
+			const community_module = new CommunityModule(this.tag);
 
-			/*console.debug(this.community);
-
-			this.description = this.community.description;*/
-
-			/*let community_module = null;
-
-			if (this.app_module.activeCommunity != '')
-				community_module = new CommunityModule(this.app_module.activeCommunity);
-
-			this.description = (community_module && community_module.description) || [];*/
-
+			return community_module.description;
 		}
 
 	}

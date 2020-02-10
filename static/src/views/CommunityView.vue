@@ -2,7 +2,7 @@
 	<div>
 		<p>&nbsp;</p>
 		<h1 class='m-about-title'>
-			<strong><span>Computer Society (CS)</span></strong>
+			<strong><span>{{getTitle()}}</span></strong>
 		</h1>
 		<p>&nbsp;</p>
 
@@ -12,11 +12,22 @@
 </template>
 
 <script lang='ts'>
-	import { Vue, Component } from 'vue-property-decorator';
+	import { Vue, Component, Prop } from 'vue-property-decorator';
+
+	import CommunityModule from '../api/store/modules/community.ts';
 
 	@Component({})
 	export default class CommunityView extends Vue {
 
+		@Prop({ required: true, })
+		public tag: string;
+
+		public getTitle() {
+
+			const community_module = new CommunityModule(this.tag);
+
+			return community_module.name + ' (' + this.tag + ')';
+		}
 	}
 </script>
 

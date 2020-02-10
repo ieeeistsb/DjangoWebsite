@@ -10,9 +10,12 @@ import 'nprogress/nprogress.css'; // progress bar style
 import AppModule from './api/store/modules/app.ts';
 
 // @ts-ignore
+import CommunityModule from './api/store/modules/community.ts';
+
+// @ts-ignore
 import { getStore } from './api/store/handler.ts';
 
-NProgress.configure({ showSpinner: false }); // NProgress Configuration
+NProgress.configure({ showSpinner: true, }); // NProgress Configuration
 
 const whiteList = ['home']; // no redirect whitelist
 
@@ -22,16 +25,22 @@ const router = new VueRouter({
 	/*mode: 'history',*/
 	base: '',
 	routes: constantRouterMap,
+	scrollBehavior(to, from, savedPosition) { return { x: 0, y: 0 }; },
 });
 
 router.beforeEach((to, from, next) => {
 
 	NProgress.start(); // start progress bar
 
-	//if (to.fullPath.includes('community')) {
-	//	if (!getStore('app') || !getStore('app').activeCommunity || !to.params.tag)
-	//		next('/home');
-	//}
+	if (to.fullPath.includes('community')) {
+
+		if (!getStore(to.params.tag)) {
+
+			next('/404');
+
+		}
+
+	}
 
 	next();
 

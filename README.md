@@ -9,7 +9,7 @@
 	$ pipenv install
 	$ cd static
 	$ npm install
-	$ npm install -g webpack-cli
+	$ sudo npm install -g webpack-cli
 	$ cd ..
 	$ ./manage.py runserver
 	$ exit
