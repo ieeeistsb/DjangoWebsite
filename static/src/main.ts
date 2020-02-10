@@ -12,7 +12,6 @@ import Initializer from './config/bootstrap.ts';
 new Vue({
 	router,
 	beforeCreate() {
-		console.debug('Loading/Creating session storage Data');
 		Initializer();
 	},
 	render: (h) => h(App),

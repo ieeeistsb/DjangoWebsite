@@ -41,8 +41,63 @@ db = {
 		},
 		{
 			"id" : 6,
-			"pt" : "",
-			"en" : ""
+			"pt" : "A Industry Application Society (IAS) é um Chapter direcionado para todos os interessados na indústria e no comércio, e que querem dar o seu contributo para estes temas.",
+			"en" : "The Industry Application Society (IAS) is a Chapter aimed at all those interested in industry and commerce, and who want to contribute to these issues."
+		},
+		{
+			"id" : 7,
+			"pt" : "A IAS enriquece tanto os seus membros como o mercado pois procura encontrar soluções que permitam desenvolver tanto a indústria como o comércio.",
+			"en" : "IAS enriches both its members and the market as it seeks to find solutions that allow the development of both industry and commerce."
+		},
+		{
+			"id" : 8,
+			"pt" : "O nosso objetivo é fomentar a ligação entre os alunos e as empresas presentes nestes setores através de palestras sobre temas atuais e de interesse académico que se focam não só na realidade industrial dos dias de hoje (como por exemplo a sustentabilidade na indústria), mas também na sua evolução e no futuro (como o tema da nova revolução industrial, a indústria 4.0). A nossa missão também passa por apoiar o desenvolvimento de softskills que contribuem para o crescimento pessoal dos estudantes e da comunidade científica através de workshops e outras atividades.",
+			"en" : "Our goal is to foster the connection between students and companies present in these sectors through lectures on current and academic topics that focus not only on today's industrial reality (such as sustainability in industry), but also in its evolution and in the future (as the theme of the new industrial revolution, industry 4.0). Our mission is also to support the development of softskills that contribute to the personal growth of students and the scientific community through workshops and other activities."
+		},
+		{
+			"id" : 9,
+			"pt" : "Se estás curioso em saber mais sobre a IAS-IST contacta-nos através de ias@ieee-ist.org.",
+			"en" : "If you are curious to know more about IAS-IST contact us at ias@ieee-ist.org."
+		},
+		{
+			"id" : 10,
+			"pt" : "O IEEE-IST Engineering in Medicine and Biology Society (EMBS) Student Chapter dedica-se a todos os interessados na Bioengenharia, com foco específico nos cursos de Engenharia Biomédica e Engenharia Biológica do Instituto Superior Técnico – Universidade de Lisboa.",
+			"en" : "The IEEE-IST Engineering in Medicine and Biology Society (EMBS) Student Chapter is dedicated to all those interested in Bioengineering, with a specific focus on the Biomedical Engineering and Biological Engineering courses at Instituto Superior Técnico - University of Lisbon."
+		},
+		{
+			"id" : 11,
+			"pt" : "Sendo parte integrante da EMBS, a maior sociedade internacional de Bioengenheiros a nível mundial, a nossa missão passa por providenciar à comunidade científica e estudantil da nossa universidade o acesso a práticas, informação, ideias e opiniões que modelam uma das atuais áreas de maior crescimento na ciência.",
+			"en" : "As an integral part of EMBS, the largest international society of Bioengineers worldwide, our mission is to provide the scientific and student community at our university with access to practices, information, ideas and opinions that shape one of the current areas of greatest growth in the science."
+		},
+		{
+			"id" : 12,
+			"pt" : "O nosso espetro de ação vai desde iniciativas inovadoras e disruptivas, como o Bio(Hack) Projects e o Colab Sessions que visam aproximar a comunidade estudantil da vertente mais técnico-científica, até aos eventos descontraídos como o Food for Thought e Caixa de Pandora, passando por diversos Workshops lúdicos ou técnicos, que formam os estudantes tanto nas componentes académicas como no âmbito das softskills.",
+			"en" : "Our spectrum of action ranges from innovative and disruptive initiatives, such as Bio (Hack) Projects and Colab Sessions that aim to bring the student community closer to the more technical-scientific aspect, to relaxed events such as Food for Thought and Caixa de Pandora, passing through several playful or technical workshops, which train students both in the academic components and in the scope of the softskills."
+		},
+		{
+			"id" : 13,
+			"pt" : "Se gostavas de te juntar a nós ou estás curioso em saber mais sobre a EMBS-IST, contacta-nos através de embs@ieee-ist.org.",
+			"en" : "If you would like to join us or are curious to know more about EMBS-IST, contact us at embs@ieee-ist.org."
+		},
+		{
+			"id" : 14,
+			"pt" : "A Wie (Woman In Engineering) – IST, é um affinity group pertencente ao IEEE- IST studentbranch, sediado no campus da Alameda do Instituto Superior Técnico da Universidade de Lisboa.",
+			"en" : "Wie (Woman In Engineering) - IST, is an affinity group belonging to the IEEE-IST studentbranch, based on the Alameda campus of the Instituto Superior Técnico of the University of Lisbon."
+		},
+		{
+			"id" : 15,
+			"pt" : "Este grupo é destinado a todos estudantes de engenharia dedicados ao incentivo e reconhecimento da mulher no mundo da engenharia. O nosso principal objectivo passa por motivar e inspirar futuras engenheiras a perseguir as carreiras cientificas e interesses dos seus sonhos. Pretendemos combater qualquer disparidade de oportunidade que possa surgir na comunidade científica, promovendo assim um ambiente diversificado de ideias e opiniões inovadoras. Resumindo, o nosso intuito é o de criar uma comunidade inclusiva, dinâmica e dedicada, que promova o debate e a batalha de ideias para o benefício da humanidade e da comunidade científico-tecnológica do IST.",
+			"en" : "This group is aimed at all engineering students dedicated to encouraging and recognizing women in the world of engineering. Our main objective is to motivate and inspire future engineers to pursue the scientific careers and interests of their dreams. We intend to combat any disparity of opportunity that may arise in the scientific community, thus promoting a diverse environment of innovative ideas and opinions. In short, our aim is to create an inclusive, dynamic and dedicated community that promotes debate and the battle of ideas for the benefit of humanity and the IST scientific-technological community."
+		},
+		{
+			"id" : 16,
+			"pt" : "De forma a impulsionar a nossa visão, a Wie-IST organiza iniciativas como palestras, workshops e discussões inovadoras.",
+			"en" : "In order to boost our vision, Wie-IST organizes initiatives such as lectures, workshops and innovative discussions."
+		},
+		{
+			"id" : 17,
+			"pt" : "Se estás interessado em fazer parte desta iniciativa, ou estás curioso em saber mais sobre a Wie-IST, não hesites em contactar-nos através de: wie@ieee-ist.org",
+			"en" : "If you are interested in being part of this initiative, or are curious to know more about Wie-IST, do not hesitate to contact us through: wie@ieee-ist.org"
 		}
 	],
 	"communities": [
@@ -58,27 +113,33 @@ db = {
 			"tag" : "IAS",
 			"image" : "x.jpg",
 			"pages" : ["members", "events"],
-			"description" : [6]
+			"description" : [6, 7, 8, 9]
 		},
 		{
 			"name" : "Engineering in Medicine and Biology Society",
 			"tag" : "EMBS",
 			"image" : "z.jpg",
 			"pages" : ["members"],
-			"description" : [6]
+			"description" : [10, 11, 12, 13]
 		},
 		{
 			"name" : "Woman In Engineering",
 			"tag" : "Wie",
 			"image" : "x.jpg",
 			"pages" : [],
-			"description" : [6]
+			"description" : [14, 15, 16, 17]
 		}
 	],
 	"events" : [],
 	"pages" : [
-		{ "type" : "members", "translatable_name" : 1 },
-		{ "type" : "events",  "translatable_name" : 2 }
+		{
+			"type" : "members",
+			"translatable_name" : 1
+		},
+		{
+			"type" : "events",
+			"translatable_name" : 2
+		}
 	],
 	
 

@@ -6,6 +6,12 @@ import { App, Community } from '../api/entities.ts';
 import AppModule from '../api/store/modules/app.ts';
 
 // @ts-ignore
+import CommunityModule from '../api/store/modules/community.ts';
+
+// @ts-ignore
+import CommunityApi from '../api/CommunityApi.ts';
+
+// @ts-ignore
 import config from './defaultSettings.ts';
 
 export default function Initializer() {
@@ -18,7 +24,5 @@ export default function Initializer() {
 	};
 
 	app_module.setApp(defaultApp);
-
-	console.debug('App initialized');
 
 }

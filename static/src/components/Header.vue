@@ -41,27 +41,15 @@
 </template>
 
 <script lang='ts'>
-	import { Vue, Component } from 'vue-property-decorator';
+	import { Vue, Component, Prop } from 'vue-property-decorator';
 
 	import { Community } from '../api/entities.ts';
-
-	import CommunityApi from '../api/CommunityApi.ts';
-
-	import CommunityModule from '../api/store/modules/community.ts';
   
 	@Component({})
 	export default class Header extends Vue {
 
+		@Prop({ required: true, })
 		public communities: Community[] = [];
-
-		public beforeMount() {
-			CommunityApi.get_communities()
-				.then((resp) => {
-					this.communities = resp;
-					this.communities.forEach((community) => CommunityModule.addCommunity(community));
-				})
-				.catch((err) => console.error(err));
-		}
 
 		public moveTo(path: string) {
 
