@@ -102,35 +102,75 @@ db = {
 	],
 	"communities": [
 		{
-			"name": "Computer Society",
-			"tag" : "CS",
+			"name"  : "Computer Society",
+			"tag"   : "CS",
 			"image" : "y.jpg",
 			"pages" : ["members", "events"],
-			"description" : [3, 4, 5]
+			"description" : [3, 4, 5],
+			"events" : [1, 2, 3]
 		},
 		{
-			"name" : "Industry Application Society",
-			"tag" : "IAS",
+			"name"  : "Industry Application Society",
+			"tag"   : "IAS",
 			"image" : "x.jpg",
 			"pages" : ["members", "events"],
-			"description" : [6, 7, 8, 9]
+			"description" : [6, 7, 8, 9],
+			"events" : []
 		},
 		{
-			"name" : "Engineering in Medicine and Biology Society",
-			"tag" : "EMBS",
+			"name"  : "Engineering in Medicine and Biology Society",
+			"tag"   : "EMBS",
 			"image" : "z.jpg",
 			"pages" : ["members"],
-			"description" : [10, 11, 12, 13]
+			"description" : [10, 11, 12, 13],
+			"events" : [4, 5]
 		},
 		{
-			"name" : "Woman In Engineering",
-			"tag" : "Wie",
+			"name"  : "Woman In Engineering",
+			"tag"   : "Wie",
 			"image" : "x.jpg",
 			"pages" : [],
-			"description" : [14, 15, 16, 17]
+			"description" : [14, 15, 16, 17],
+			"events" : []
 		}
 	],
-	"events" : [],
+	"events" : [
+		{
+			"id"    : 1,
+			"name"  : "Code Night",
+			"date"  : "01/01/2020",
+			"description" : [],
+			"image" : "x.jpg"
+		},
+		{
+			"id"    : 2,
+			"name"  : "Workshop BE",
+			"date"  : "03/05/2019",
+			"description" : [],
+			"image" : "x.jpg"
+		},
+		{
+			"id"    : 3,
+			"name"  : "Workshop FE",
+			"date"  : "08/09/2019",
+			"description" : [],
+			"image" : "x.jpg"
+		},
+		{
+			"id"    : 4,
+			"name"  : "Food For Thought",
+			"date"  : "06/07/2019",
+			"description" : [],
+			"image" : "x.jpg"
+		},
+		{
+			"id"    : 5,
+			"name"  : "Quizz Night",
+			"date"  : "04/12/2019",
+			"description" : [],
+			"image" : "x.jpg"
+		}
+	],
 	"pages" : [
 		{
 			"type" : "members",
