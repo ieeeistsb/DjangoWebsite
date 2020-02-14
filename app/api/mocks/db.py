@@ -1,15 +1,12 @@
 
 
 db = {
-	"branches" : [
-		{
-			"id" : 1,
+	"branch" : {
 			"name" : "IST Student Branch",
 			"communities" : ["CS", "IAS", "EMBS", "Wie"],
 			"departments" : [1],
 			"pages" : ["members", "repository"],
-		}
-	],
+	},
 	"collaborators" : [
 		{
 			"id" : 1,

@@ -12,12 +12,24 @@ class MockDBHandler(DBInterface):
 
 	__slots__ = 'request'
 	request: Any
+	branch = db.get('branch')
 	communities = db.get('communities')
 	departments = db.get('departments')
 	events = db.get('events')
 	members = db.get('collaborators')
 	content = db.get('content')
 	pages = db.get('pages')
+
+
+	def fetch_branch_departments(self, lang):
+
+		departments = []
+
+		for department_id in self.branch.get('departments'):
+
+			departments.append(self.fetch_department(department_id, lang))
+
+		return departments
 
 	def fetch_communities(self, lang) -> List[Community]:
 
