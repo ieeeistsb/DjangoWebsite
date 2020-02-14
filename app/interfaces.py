@@ -8,6 +8,9 @@ class DBInterface(object):
 	def fetch_branch_departments(self, lang) -> List[Department]:
 		raise NotImplementedError('Method `def fetch_branch_departments(self, lang) -> List[Department]` must be implemented')
 
+	def fetch_branch_events(self, lang) -> List[Event]:
+		raise NotImplementedError('Method `def fetch_branch_events(self, lang) -> List[Event]` must be implemented')
+
 	def fetch_communities(self, lang) -> List[Community]:
 		raise NotImplementedError('Method `def fetch_communities(self, lang) -> List[Community]` must be implemented')
 
@@ -25,10 +28,6 @@ class GetBranchDepartmentsIO(object):
 	__slots__ = tuple()
 
 	@property
-	def community(self) -> str:
-		raise NotImplementedError('Property `def community(self) -> str` must be implemented')
-
-	@property
 	def lang(self) -> str:
 		raise NotImplementedError('Property `def lang(self) -> str` must be implemented')
 	
@@ -37,6 +36,23 @@ class GetBranchDepartmentsIO(object):
 
 	def responseSerializer(self, branch_departments):
 		raise NotImplementedError('Method `def responseSerializer(self, branch_departments) -> ` must be implemented')
+
+	def errorSerializer(self, error):
+		raise NotImplementedError('Method `def errorSerializer(self) -> ` must be implemented')
+
+
+class GetBranchEventsIO(object):
+	__slots__ = tuple()
+
+	@property
+	def lang(self) -> str:
+		raise NotImplementedError('Property `def lang(self) -> str` must be implemented')
+	
+	def requestSerializer(self):
+		raise NotImplementedError('Method `def requestSerializer(self) -> ` must be implemented')
+
+	def responseSerializer(self, branch_events):
+		raise NotImplementedError('Method `def responseSerializer(self, branch_events) -> ` must be implemented')
 
 	def errorSerializer(self, error):
 		raise NotImplementedError('Method `def errorSerializer(self) -> ` must be implemented')

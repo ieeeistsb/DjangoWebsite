@@ -31,6 +31,16 @@ class MockDBHandler(DBInterface):
 
 		return departments
 
+	def fetch_branch_events(self, lang):
+
+		events = []
+
+		for event_id in self.branch.get('events'):
+
+			events.append(self.fetch_event(event_id, lang))
+
+		return events
+
 	def fetch_communities(self, lang) -> List[Community]:
 
 		communities = []

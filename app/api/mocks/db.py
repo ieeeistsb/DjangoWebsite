@@ -5,6 +5,7 @@ db = {
 			"name" : "IST Student Branch",
 			"communities" : ["CS", "IAS", "EMBS", "Wie"],
 			"departments" : [1],
+			"events" : [1, 2, 3, 4, 5],
 			"pages" : ["members", "repository"],
 	},
 	"collaborators" : [
