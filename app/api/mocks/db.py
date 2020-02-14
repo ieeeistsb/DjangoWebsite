@@ -1,15 +1,28 @@
 
 
 db = {
+	"branches" : [
+		{
+			"id" : 1,
+			"name" : "IST Student Branch",
+			"communities" : ["CS", "IAS", "EMBS", "Wie"],
+			"departments" : [1],
+			"pages" : ["members", "repository"],
+		}
+	],
 	"collaborators" : [
 		{
-			"name" : "Joana Nápoles",
-			"contact" : "jn@gmail.com",
-			"image" : "x.jpg"
+			"id" : 1,
+			"name"     : "Joana Nápoles",
+			"contact"  : "jn@gmail.com",
+			"description" : [],
+			"image"    : "x.jpg"
 		},
 		{
+			"id" : 2,
 			"name" : "Filipa Rocha",
 			"contact" : "fr@gmail.com",
+			"description" : [],
 			"image" : "x.jpg"
 		}
 	],
@@ -107,7 +120,8 @@ db = {
 			"image" : "y.jpg",
 			"pages" : ["members", "events"],
 			"description" : [3, 4, 5],
-			"events" : [1, 2, 3]
+			"events" : [1, 2, 3],
+			"departments" : []
 		},
 		{
 			"name"  : "Industry Application Society",
@@ -115,7 +129,8 @@ db = {
 			"image" : "x.jpg",
 			"pages" : ["members", "events"],
 			"description" : [6, 7, 8, 9],
-			"events" : []
+			"events" : [],
+			"departments" : []
 		},
 		{
 			"name"  : "Engineering in Medicine and Biology Society",
@@ -123,7 +138,8 @@ db = {
 			"image" : "z.jpg",
 			"pages" : ["members"],
 			"description" : [10, 11, 12, 13],
-			"events" : [4, 5]
+			"events" : [4, 5],
+			"departments" : [2]
 		},
 		{
 			"name"  : "Woman In Engineering",
@@ -131,7 +147,20 @@ db = {
 			"image" : "x.jpg",
 			"pages" : [],
 			"description" : [14, 15, 16, 17],
-			"events" : []
+			"events" : [],
+			"departments" : []
+		}
+	],
+	"departments" : [
+		{
+			"id" : 1,
+			"name" : "Board",
+			"members" : [1, 2]
+		},
+		{
+			"id" : 2,
+			"name" : "Board",
+			"members" : [1]		
 		}
 	],
 	"events" : [
