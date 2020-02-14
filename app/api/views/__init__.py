@@ -1,3 +1,5 @@
+from .BranchView import BranchView
+
 from .BranchDepartmentsView import BranchDepartmentsView
 
 from .BranchEventsView import BranchEventsView

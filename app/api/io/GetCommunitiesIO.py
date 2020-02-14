@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.http import QueryDict
 
 # import entity
 from rest_framework.response import Response
@@ -11,9 +12,23 @@ class GetCommunitiesIO:
 	def __init__(self, request):
 		self.request = request
 
+
+	@property
+	def lang(self) -> str:
+
+		try:
+	
+			return self.data.get('lang')
+
+		except Exception as e:
+			# create exceptions (ParameterMissingFromRequest)
+			print(e)
+
+
 	def requestSerializer(self):
-		#data = json.loads(self.request.body)
-		pass
+		
+		self.data = QueryDict(self.request.META['QUERY_STRING'])
+
 
 	def responseSerializer(self, communities):
 

@@ -1,3 +1,5 @@
+from .get_branch import get_branch
+
 from .get_branch_departments import get_branch_departments
 
 from .get_branch_events import get_branch_events

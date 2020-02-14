@@ -1,9 +1,12 @@
 
 from typing import List
-from .entities import Community, Department, Event, Member, Page
+from .entities import Branch, Community, Department, Event, Member, Page
 
 class DBInterface(object):
 	__slots__ = tuple()
+
+	def fetch_branch(self, lang) -> Branch:
+		raise NotImplementedError('Method `def fetch_branch(self, lang) -> Branch` must be implemented')
 
 	def fetch_branch_departments(self, lang) -> List[Department]:
 		raise NotImplementedError('Method `def fetch_branch_departments(self, lang) -> List[Department]` must be implemented')
@@ -22,6 +25,23 @@ class DBInterface(object):
 
 	def fetch_page(self, page_type) -> List[Page]:
 		raise NotImplementedError('Method `def fetch_page(self, page_type) -> List[Page]` must be implemented')
+
+
+class GetBranchIO(object):
+	__slots__ = tuple()
+
+	@property
+	def lang(self) -> str:
+		raise NotImplementedError('Property `def lang(self) -> str` must be implemented')
+	
+	def requestSerializer(self):
+		raise NotImplementedError('Method `def requestSerializer(self) -> ` must be implemented')
+
+	def responseSerializer(self, branch):
+		raise NotImplementedError('Method `def responseSerializer(self, branch) -> ` must be implemented')
+
+	def errorSerializer(self, error):
+		raise NotImplementedError('Method `def errorSerializer(self) -> ` must be implemented')
 
 
 class GetBranchDepartmentsIO(object):

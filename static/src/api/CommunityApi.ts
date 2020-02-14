@@ -25,7 +25,7 @@ export default class CommunityApi extends ApiBase {
 
 		const promise = super.doList<string>({
 			endpoint: CommunityApi.URL_BASE + environment.communities_list_endpoint,
-			parameters: this.io_handler.requestSerializer(),
+			parameters: this.io_handler.requestSerializer('pt'),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {

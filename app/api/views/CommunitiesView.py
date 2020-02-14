@@ -5,7 +5,6 @@ from rest_framework.views import APIView
 
 from ..io import GetCommunitiesIO
 
-from ...entities import Community
 from ...usecases import get_communities
 
 #from ..db import DBHandler
@@ -21,7 +20,7 @@ class CommunitiesView(APIView):
 
 		try:
 			#call usecase
-			communities = get_communities(db_handler)
+			communities = get_communities(io_handler, db_handler)
 
 		except Exception as e:
 			return io_handler.errorSerializer(e)

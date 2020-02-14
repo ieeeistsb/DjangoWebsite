@@ -3,13 +3,13 @@ from typing import List
 
 from ..entities import Community
 
-from ..interfaces import DBInterface
+from ..interfaces import DBInterface, GetBranchIO
 
-def get_communities(db_handler : DBInterface) -> List[Community]:
+def get_communities(io_handler : GetBranchIO, db_handler : DBInterface) -> List[Community]:
 	
 	try:
 
-		lang = 'pt'
+		lang = io_handler.lang
 
 		communities = db_handler.fetch_communities(lang)
 

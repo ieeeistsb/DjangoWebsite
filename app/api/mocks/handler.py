@@ -4,7 +4,7 @@ from typing import List, Any
 
 from ...interfaces import DBInterface
 
-from ...entities import Community, Department, Event, Member, Page
+from ...entities import Branch, Community, Department, Event, Member, Page
 
 
 @dataclass
@@ -20,6 +20,23 @@ class MockDBHandler(DBInterface):
 	content = db.get('content')
 	pages = db.get('pages')
 
+	def fetch_branch(self, lang):
+
+		pages = []
+
+		for page_type in self.branch.get('pages'):
+
+			pages.append(self.fetch_page(page_type, lang))
+
+		description = []
+
+		for paragraph in self.branch.get('description'):
+
+			description.append(self.fetch_content(paragraph, lang))
+
+		branch = Branch(self.branch.get('name'), description, pages)
+
+		return branch
 
 	def fetch_branch_departments(self, lang):
 

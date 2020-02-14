@@ -4,6 +4,7 @@ db = {
 	"branch" : {
 			"name" : "IST Student Branch",
 			"communities" : ["CS", "IAS", "EMBS", "Wie"],
+			"description" : [],
 			"departments" : [1],
 			"events" : [1, 2, 3, 4, 5],
 			"pages" : ["members", "repository"],
@@ -109,6 +110,11 @@ db = {
 			"id" : 17,
 			"pt" : "Se estás interessado em fazer parte desta iniciativa, ou estás curioso em saber mais sobre a Wie-IST, não hesites em contactar-nos através de: wie@ieee-ist.org",
 			"en" : "If you are interested in being part of this initiative, or are curious to know more about Wie-IST, do not hesitate to contact us through: wie@ieee-ist.org"
+		},
+		{
+			"id" : 18,
+			"pt" : "Repositório",
+			"en" : "Repository"
 		}
 	],
 	"communities": [
@@ -206,6 +212,10 @@ db = {
 		{
 			"type" : "events",
 			"translatable_name" : 2
+		},
+		{
+			"type" : "repository",
+			"translatable_name" : 18,
 		}
 	],
 	

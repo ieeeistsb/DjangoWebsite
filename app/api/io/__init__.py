@@ -1,3 +1,5 @@
+from .GetBranchIO import GetBranchIO
+
 from .GetBranchDepartmentsIO import GetBranchDepartmentsIO
 
 from .GetBranchEventsIO import GetBranchEventsIO

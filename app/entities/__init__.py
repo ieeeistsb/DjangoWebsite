@@ -1,3 +1,5 @@
+from .Branch import Branch
+
 from .Community  import Community
 
 from .Department import Department

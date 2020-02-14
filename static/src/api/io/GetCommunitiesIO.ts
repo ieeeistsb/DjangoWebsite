@@ -3,8 +3,8 @@ import { Community } from '../entities.ts';
 
 export default class GetCommunitiesIO {
 
-	public requestSerializer() {
-		return '';
+	public requestSerializer(lang: string) {
+		return '?lang=' + lang;
 	}
 
 	public responseSerializer(data) {
