@@ -11,3 +11,5 @@ from .Member import Member
 from .Content import Content
 
 from .Page import Page
+
+from .Book import Book

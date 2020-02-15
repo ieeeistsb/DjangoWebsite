@@ -28,7 +28,7 @@ class Branch:
 	
 	@classmethod
 	def from_dict(cls, obj):
-		return Community(obj['name'], obj['description'], obj['pages'])
+		return Branch(obj['name'], obj['description'], obj['pages'])
 
 	def dict(self):
 		return {
