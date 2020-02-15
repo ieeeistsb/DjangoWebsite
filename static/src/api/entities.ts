@@ -28,3 +28,13 @@ export interface Page {
 	name : string;
 	type : string;
 }
+
+export interface Book {
+	title: string;
+	author: string;
+	year_edition: string;
+	price: string;
+	quality: string;
+	contact: string;
+	img: string;
+}

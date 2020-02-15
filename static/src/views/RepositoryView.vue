@@ -52,14 +52,7 @@
 
 	import BookCard from '../components/BookCard.vue';
 
-	interface Book {
-		title: string;
-		author: string;
-		year_edition: string;
-		price: string;
-		quality: string;
-		contact: string;
-	}
+	import { Book } from '../api/entities.ts';
 
 	@Component({ components: { 'book-card': BookCard, }, })
 	export default class RepositoryView extends Vue {

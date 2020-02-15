@@ -225,9 +225,27 @@ db = {
 		},
 		{
 			"type" : "repository",
-			"translatable_name" : 18,
+			"translatable_name" : 18
 		}
 	],
-	
-
+	"books" : [
+		{
+			"title"  : "Hidráulica",
+			"author" : "António de Carvalho Quintela",
+			"year_edition" : "11ª Edição",
+			"price"  : "7 €",
+			"quality" : "Como novo",
+			"contact" : "antoniossbc@gmail.com",
+			"image"   : "book1.jpg"
+		},
+		{
+			"title"  : "Análise Complexa e Equações Diferenciais",
+			"author" : "Luís Barreira",
+			"year_edition" : "1ª Edição",
+			"price"  : "10 €",
+			"quality" : "Muito pouco sublinhado",
+			"contact" : "antoniossbc@gmail.com",
+			"image"   : "book2.jpg"
+		}
+	]
 }
