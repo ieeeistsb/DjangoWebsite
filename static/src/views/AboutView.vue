@@ -54,7 +54,7 @@
 	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class AboutView extends Vue {
 
-		@Prop({required: true})
+		@Prop({ required: true, })
 		public tag: string;
 
 		public images: string[] = ['header.jpg'];

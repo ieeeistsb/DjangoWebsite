@@ -8,4 +8,6 @@ export const environment = {
 
 	communities_list_endpoint: '/communities/',
 
+	communities_events_list_endpoint: '/community/events/',
+
 };

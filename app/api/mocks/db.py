@@ -115,6 +115,16 @@ db = {
 			"id" : 18,
 			"pt" : "Repositório",
 			"en" : "Repository"
+		},
+		{
+			"id" : 19,
+			"pt" : "Vem acabar os projetos com companhia e diversão.",
+			"en" : "The projects end with company and fun."
+		},
+		{
+			"id" : 20,
+			"pt" : "Vem aprender a programar connosco.",
+			"en" : "Come learn to program with us."
 		}
 	],
 	"communities": [
@@ -131,7 +141,7 @@ db = {
 			"name"  : "Industry Application Society",
 			"tag"   : "IAS",
 			"image" : "x.jpg",
-			"pages" : ["members", "events"],
+			"pages" : ["members"],
 			"description" : [6, 7, 8, 9],
 			"events" : [],
 			"departments" : []
@@ -140,7 +150,7 @@ db = {
 			"name"  : "Engineering in Medicine and Biology Society",
 			"tag"   : "EMBS",
 			"image" : "z.jpg",
-			"pages" : ["members"],
+			"pages" : ["members", "events"],
 			"description" : [10, 11, 12, 13],
 			"events" : [4, 5],
 			"departments" : [2]
@@ -164,7 +174,7 @@ db = {
 		{
 			"id" : 2,
 			"name" : "Board",
-			"members" : [1]		
+			"members" : [1]
 		}
 	],
 	"events" : [
@@ -172,36 +182,36 @@ db = {
 			"id"    : 1,
 			"name"  : "Code Night",
 			"date"  : "01/01/2020",
-			"description" : [],
-			"image" : "x.jpg"
+			"description" : [19],
+			"image" : "events.jpg"
 		},
 		{
 			"id"    : 2,
 			"name"  : "Workshop BE",
 			"date"  : "03/05/2019",
-			"description" : [],
-			"image" : "x.jpg"
+			"description" : [20],
+			"image" : "header.jpg"
 		},
 		{
 			"id"    : 3,
 			"name"  : "Workshop FE",
 			"date"  : "08/09/2019",
-			"description" : [],
-			"image" : "x.jpg"
+			"description" : [20],
+			"image" : "header.jpg"
 		},
 		{
 			"id"    : 4,
 			"name"  : "Food For Thought",
 			"date"  : "06/07/2019",
-			"description" : [],
-			"image" : "x.jpg"
+			"description" : [19],
+			"image" : "events.jpg"
 		},
 		{
 			"id"    : 5,
 			"name"  : "Quizz Night",
 			"date"  : "04/12/2019",
-			"description" : [],
-			"image" : "x.jpg"
+			"description" : [19],
+			"image" : "events.jpg"
 		}
 	],
 	"pages" : [

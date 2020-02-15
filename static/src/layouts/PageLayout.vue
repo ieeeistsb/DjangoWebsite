@@ -36,10 +36,26 @@
 						CommunityModule.addCommunity(community);
 					});
 					
+					this.communities.forEach((community) => {
+						this.getEvents(community.tag);
+					});
 				})
 				.catch((err) => console.error(err));
 		}
 
+
+		public getEvents(community_tag: string) {
+
+			const community_module = new CommunityModule(community_tag);
+
+			CommunityApi.get_community_events(community_tag)
+				.then((resp) => {
+
+					community_module.addEvents(resp);
+					
+				})
+				.catch((err) => console.error(err));
+		}
 	}
 </script>
 

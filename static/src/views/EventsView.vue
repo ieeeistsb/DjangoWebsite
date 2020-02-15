@@ -7,59 +7,48 @@
 		<p>&nbsp;</p>
 
 		<p class='m-about-text'>
-			<span>O departamento de Eventos é o mais recente na EMBS, tendo sido fundado em 2017 pela atual Chair, Maria Leonor Narciso, devido à necessidade crescente da existência duma secção especializada em organizar eventos. Como o nome indica, a função deste departamento é realizar o planeamento e concretização de eventos pontuais, como a noite de Quizz, ou recorrentes, como a Caixa de Pandora. Desde momentos lúdicos que visam proporcionar espaços de descontração aos estudantes do IST, até workshops que visam ajudar os alunos a melhorar as suas skills técnicas, os eventos organizados são pensados tendo em conta as necessidades dos alunos.
+			<span>O departamento de eventos tem como função realizar desde momentos lúdicos, que visam proporcionar espaços de descontração aos estudantes do IST, até workshops, que visam ajudar os alunos a melhorar as suas skills técnicas. Os eventos organizados são pensados tendo em conta as necessidades dos alunos.
 			</span>
 		</p>
 
 		<p>&nbsp;</p>
-		<h1 class='m-about-title'>
-			<strong><span>Iniciativas</span></strong>
-		</h1>
-		<p>&nbsp;</p>
 
-		<div v-for='event in events'>
+		<div v-for='event in getEvents()' class='m-event'>
 
 			<event-card :event='event' />
 
 		</div>
 
 		<p>&nbsp;</p>
-		<h1 class='m-about-title'>
-			<strong><span>WorkShops</span></strong>
-		</h1>
-		<p>&nbsp;</p>
-
-		<p class='m-about-text'>
-			<span>Para além de todos os eventos descritos, a EMBS oferece-te também uma vasta panóplia de workshops, desde os mais técnicos como workshops de Python até aos mais lúdicos, que formam os estudantes tanto nas componentes académicas, como no âmbito das softskills.
-			</span>
-		</p>
 
 	</div>
 </template>
 
 <script lang='ts'>
 
-	import { Vue, Component } from 'vue-property-decorator';
+	import { Vue, Component, Prop } from 'vue-property-decorator';
 
 	import EventCard from '../components/EventCard.vue';
 
-	interface Event {
-		name: string;
-		description: string;
-		img: string;
-	}
+	import { Event } from '../api/entities.ts';
+
+	import CommunityModule from '../api/store/modules/community.ts';
+
+	import CommunityApi from '../api/CommunityApi.ts';
 
 	@Component({ components: { 'event-card': EventCard, }, })
 	export default class EventsView extends Vue {
 
-		public events: Event[] = [
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'},
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'},
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'}
-		];
+		@Prop({ required: true, })
+		public tag: string;
+
+		public getEvents() {
+
+			const community_module = new CommunityModule(this.tag);
+
+			return community_module.events;
+
+		}
 
 	}
 
@@ -75,6 +64,11 @@
 	.m-about-text {
 		text-align: justify;
 		color: #808080;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+
+	.m-event {
 		margin-left: 10%;
 		margin-right: 10%;
 	}
