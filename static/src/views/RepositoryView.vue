@@ -37,7 +37,7 @@
 
 		<p>&nbsp;</p>
 
-		<div v-for='book in books'>
+		<div v-for='book in getBooks()' class='m-books'>
 
 			<book-card :book='book'/>
 			
@@ -54,10 +54,12 @@
 
 	import { Book } from '../api/entities.ts';
 
+	import BranchModule from '../api/store/modules/branch.ts';
+
 	@Component({ components: { 'book-card': BookCard, }, })
 	export default class RepositoryView extends Vue {
 
-		public books: Book[] = [
+		/*public books: Book[] = [
 			{'title': 'Hidráulica',
 			 'author': 'António de Carvalho Quintela',
 			 'year_edition': '11ª Edição',
@@ -72,7 +74,14 @@
 			 'quality': 'Muito pouco sublinhado',
 			 'contact': 'antoniossbc@gmail.com'
 			},
-		];
+		];*/
+
+		public getBooks() {
+
+			const branch_module = new BranchModule();
+
+			return branch_module.books;
+		}
 
 	}
 
@@ -99,6 +108,11 @@
 	.m-sell-tag a {
 		background-color: steelblue;
 		text-decoration-color: white;
+	}
+
+	.m-books {
+		margin-left: 10%;
+		margin-right: 10%;
 	}
 
 </style>

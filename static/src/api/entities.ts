@@ -3,6 +3,15 @@ export interface App {
 	lang   : string;
 }
 
+export interface Branch {
+	name : string;
+	tag  : string;
+	description ?: string[];
+	books ?: Book[];
+	members ?: Member[];
+	events ?: Event[]; 
+}
+
 export interface Community {
 	name  : string;
 	tag   : string;
