@@ -1,46 +1,56 @@
 <template>
-	<div>
-		<div id='imgsCarousel' class='carousel slide' data-ride='carousel'>
+	
+	<section id="events" class="pb-5">
+		
+		<div class="container">
+
+			<div id='imgsCarousel' class='carousel slide' data-ride='carousel'>
 			
-			<div class='carousel-inner'>
-				<div v-bind:class="returnClass(index)" v-for='(img, index) in images'>
+				<div class='carousel-inner'>
+					<div v-bind:class="returnClass(index)" v-for='(img, index) in images'>
 
-					<img v-bind:src="'/static/public/assets/cs/' + img" class='card-img-top d-block w-100'>
+						<img v-bind:src="'/static/public/assets/cs/' + img" class='card-img-top d-block w-100'>
 
+					</div>
 				</div>
+
+				<a class="carousel-control-prev" href="#imgsCarousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#imgsCarousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 
 			</div>
 
-			<a class="carousel-control-prev" href="#imgsCarousel" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#imgsCarousel" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+			<div>
+				<p class='m-about-text' v-for='paragraph in getDescription()'>
+					<span>{{paragraph}}</span>
+				</p>
+			</div>
+		
+		</div>
+
+		<div id="events_header" class="container">
+
+			<div class="row mt-5">
+                <div class="col-12">
+                    <h1 class='m-about-title'><strong><span>Eventos</span></strong></h1>
+                </div>
+            </div>
 
 		</div>
 
-		<p>&nbsp;</p>
+		<div id="events_content" class="container mt-5">
 
-		<div>
-
-			<p class='m-about-text' v-for='paragraph in getDescription()'>
-				<span>{{paragraph}}</span>
-			</p>
+			<events-carousel/>
 
 		</div>
 
-		<p>&nbsp;</p>
-		<h1 class='m-about-title'>
-			<strong><span>Eventos</span></strong>
-		</h1>
-		<p>&nbsp;</p>
+	</section>
 
-		<events-carousel/>
-
-	</div>
 </template>
 
 <script lang='ts'>
@@ -73,7 +83,6 @@
 
 			return community_module.description;
 		}
-
 	}
 
 </script>
@@ -81,25 +90,13 @@
 <style scoped>
 	
 	.m-about-title {
-		text-align: center;
-		color: #808080;
-	}
+        text-align: center;
+        color: #808080;
+    }
 
-	.m-about-text {
-		text-align: justify;
-		color: #808080;
-		margin-left: 10%;
-		margin-right: 10%;
-	}
-
-	#imgsCarousel {
-		margin-left: 10%;
-		margin-right: 10%;
-	}
-
-	.carousel-inner > .m-item > img {
-		width:640px;
-		height:360px;
-	}
+    .m-about-text {
+        text-align: center;
+        color: #808080;
+    }
 
 </style>
