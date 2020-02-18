@@ -1,12 +1,17 @@
 <template>
 	<div>
-		<h1>Page Not Found</h1>
 
-		<img id='homer-img' src='/static/public/assets/imgs/homer404.jpg'>
+		<p>&nbsp;</p>
+		<h1 class='m-about-title'>
+			<button class='btn btn-primary m-btn' @click="moveTo('/home')">Home Page</button>
+		</h1>
+		<p>&nbsp;</p>
 
-		<img id='paper-img' src='/static/public/assets/imgs/paper404.jpg'>
 
-		<button class='btn btn-primary' @click="moveTo('/home')">Home Page</button>
+		<div class='container'>
+			<img class='m-img' src='/static/public/assets/imgs/notfound.jpg'>
+		</div>
+
 	</div>
 </template>
 
@@ -26,12 +31,16 @@
 </script>
 
 <style scoped>
-	
-	#homer-img {
-		float: left;
+	.m-img {
+		width: 100%;
 	}
 
-	#paper-img {
-		float: right;
+	.m-btn {
+		left: 50%;
+	}
+
+	.m-about-title {
+		text-align: center;
+		color: #808080;
 	}
 </style>
