@@ -4,7 +4,7 @@ from typing import List, Any
 
 from ...interfaces import DBInterface
 
-from ...entities import Branch, Community, Department, Event, Member, Page
+from ...entities import Branch, Community, Department, Event, Member, Page, Book
 
 
 @dataclass
@@ -19,6 +19,7 @@ class MockDBHandler(DBInterface):
 	members = db.get('collaborators')
 	content = db.get('content')
 	pages = db.get('pages')
+	books = db.get('books')
 
 	def fetch_branch(self, lang):
 
@@ -57,6 +58,16 @@ class MockDBHandler(DBInterface):
 			events.append(self.fetch_event(event_id, lang))
 
 		return events
+
+	def fetch_branch_books(self, lang):
+
+		books = []
+
+		for book in self.books:
+
+			books.append(Book(book['title'], book['author'], book['year_edition'], book['price'], book['quality'], book['contact'], book['image']))
+
+		return books
 
 	def fetch_communities(self, lang) -> List[Community]:
 

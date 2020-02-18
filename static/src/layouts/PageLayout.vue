@@ -20,6 +20,8 @@
 
 	import CommunityApi from '../api/CommunityApi.ts';
 
+	import BranchApi from '../api/BranchApi.ts';
+
 	@Component({ components: {'site-header': Header, 'site-footer': Footer}, })
 	export default class PageLayout extends Vue {
 
@@ -41,6 +43,7 @@
 					});
 				})
 				.catch((err) => console.error(err));
+
 		}
 
 
@@ -55,6 +58,18 @@
 					
 				})
 				.catch((err) => console.error(err));
+		}
+
+		public getBooks() {
+
+			BranchApi.get_branch_books()
+				.then((resp) => {
+
+					console.debug(resp);
+
+				})
+				.catch((err) => console.error(err));
+
 		}
 	}
 </script>

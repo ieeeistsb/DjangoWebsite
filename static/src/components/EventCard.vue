@@ -7,7 +7,7 @@
 
 			<img v-bind:src="'/static/public/assets/cs/' + event.img" class='card-img'>
 
-    		</div>
+			</div>
 
 			<div class='col-md-8'>
 

@@ -3,6 +3,15 @@ export interface App {
 	lang   : string;
 }
 
+export interface Branch {
+	name : string;
+	tag  : string;
+	description ?: string[];
+	books ?: Book[];
+	members ?: Member[];
+	events ?: Event[]; 
+}
+
 export interface Community {
 	name  : string;
 	tag   : string;
@@ -27,4 +36,14 @@ export interface Member {
 export interface Page {
 	name : string;
 	type : string;
+}
+
+export interface Book {
+	title: string;
+	author: string;
+	year_edition: string;
+	price: string;
+	quality: string;
+	contact: string;
+	img: string;
 }
