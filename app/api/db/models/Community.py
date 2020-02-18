@@ -1,25 +1,27 @@
 from django.db import models
 
-from .Volunteer import VolunteerModel;
+from .Image import ImageModel
 
-from .Path import Path
+from .Page import PageModel
+
+from .Event import EventModel
+
+from .Department import DepartmentModel
 
 class CommunityModel(models.Model):
 
-	name       = models.CharField(max_length = 100, unique = True)
+	name        = models.CharField(max_length = 100, unique = True)
 
-	chair      = models.ManyToManyField(VolunteerModel, blank = True, related_name = 'chair')
+	tag         = models.CharField(max_length = 8, unique = True)
 
-	vice_chair = models.ManyToManyField(VolunteerModel, related_name = 'vice_chair')
+	images      = models.ManyToManyField(ImageModel, blank = True)
 
-	info_en    = models.TextField()
+	pages       = models.ManyToManyField(PageModel, blank = True)
 
-	info_pt    = models.TextField()
+	events      = models.ManyToManyField(EventModel, blank = True)
 
-	image      = models.ImageField(upload_to = Path.getCommunitiesPath(), blank = True)
+	departments = models.ManyToManyField(DepartmentModel, blank = True)
 
-	newsletter_subscribe_url = models.URLField(blank = True, null = True)
-
-	def __unicode__(self):
+	def __str__(self):
 
 		return self.name

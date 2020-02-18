@@ -4,24 +4,22 @@ from django.contrib import admin
 
 from .api.db.models import *
 
+admin.site.register(BookModel)
+
+admin.site.register(BranchModel)
+
 admin.site.register(CommunityModel)
 
-admin.site.register(InitiativeModel)
+admin.site.register(DepartmentModel)
 
-admin.site.register(InitiativeEventModel)
+admin.site.register(EventModel)
 
-admin.site.register(NewsModel)
+admin.site.register(ImageModel)
 
-admin.site.register(NewsletterModel)
+admin.site.register(MemberModel)
 
-admin.site.register(PartnerModel)
-
-admin.site.register(SocialNetworkModel)
-
-admin.site.register(TagModel)
+admin.site.register(PageModel)
 
 admin.site.register(TeamModel)
 
-admin.site.register(TeamMemberModel)
-
-admin.site.register(VolunteerModel)
+admin.site.register(TranslatableContentModel)

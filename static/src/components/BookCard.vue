@@ -16,11 +16,6 @@
 					<h5 class='card-title'>{{book.title}}</h5>
 
 					<p>
-						<strong>Título: </strong>
-						<span class='card-text'>{{book.title}}</span>
-					</p>
-
-					<p>
 						<strong>Autor: </strong>
 						<span class='card-text'>{{book.author}}</span>
 					</p>

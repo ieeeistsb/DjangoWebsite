@@ -1,11 +1,13 @@
 from django.db import models
 
+from .Member import MemberModel
+
 class TeamModel(models.Model):
 
-	begin_year = models.IntegerField()
+	scholar_year = models.CharField(max_length = 5, unique = False)
 
-	end_year   = models.IntegerField()
+	members      = models.ManyToManyField(MemberModel)
 
-	def __unicode__(self):
+	def __str__(self):
 
-		return str(self.begin_year) + '/' + str(self.end_year)
+		return self.scholar_year
