@@ -91,22 +91,37 @@
 
 						<ul class="list-unstyled list-inline">
 							<li class="list-inline-item">
-								<a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fab fa-facebook-f"></i></a>
+								<a class="btn-floating btn-sm rgba-white-slight mx-1"
+									href="https://www.facebook.com/ieeeist/">
+									<i class="fab fa-facebook-f"></i>
+								</a>
 							</li>
 
 							<li class="list-inline-item">
-								<a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fab fa-twitter"></i></a>
+								<a class="btn-floating btn-sm rgba-white-slight mx-1"
+									href="https://twitter.com/ieeeist">
+									<i class="fab fa-twitter"></i>
+								</a>
 							</li>
 
 							<li class="list-inline-item">
-								<a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fab fa-instagram"></i></a>
+								<a class="btn-floating btn-sm rgba-white-slight mx-1"
+									href="https://www.instagram.com/ieee_ist/">
+									<i class="fab fa-instagram"></i>
+								</a>
 							</li>
 
 							<li class="list-inline-item">
-								<a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fab fa-linkedin-in"></i></a>
+								<a class="btn-floating btn-sm rgba-white-slight mx-1"
+									href="https://www.linkedin.com/company/ieee-ist-student-branch">
+									<i class="fab fa-linkedin-in"></i>
+								</a>
 							</li>
 							<li class="list-inline-item">
-								<a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fas fa-envelope"></i></i></a>
+								<a class="btn-floating btn-sm rgba-white-slight mx-1"
+									href="mailto:contact@ieee-ist.org">
+									<i class="fas fa-envelope"></i>
+								</a>
 							</li>
 						</ul>
 
