@@ -7,8 +7,8 @@ from ..io import GetBranchIO
 
 from ...usecases import get_branch
 
-#from ..db import DBHandler
-from ..mocks import MockDBHandler as DBHandler
+from ..db import DBHandler
+#from ..mocks import MockDBHandler as DBHandler
 
 class BranchView(APIView):
 

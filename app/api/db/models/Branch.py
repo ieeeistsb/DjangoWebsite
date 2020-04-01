@@ -1,5 +1,7 @@
 from django.db import models
 
+from typing import List
+
 from .TranslatableContent import TranslatableContentModel
 
 from .Department import DepartmentModel
@@ -10,21 +12,45 @@ from .Page import PageModel
 
 from .Image import ImageModel
 
+from ....entities import Branch
+
 class BranchModel(models.Model):
 
-	name        = models.CharField(max_length = 100, unique = True)
+	name            = models.CharField(max_length = 100, unique = True, primary_key=True)
 
-	tag         = models.CharField(max_length = 8, unique = True)
+	description_ids = models.ManyToManyField(TranslatableContentModel, blank = True, related_name='branch_description')
 
-	description = models.ManyToManyField(TranslatableContentModel, blank = True)
+	departments_ids = models.ManyToManyField(DepartmentModel, blank = True, related_name='branch_departments')
 
-	departments = models.ManyToManyField(DepartmentModel, blank = True)
+	events_ids      = models.ManyToManyField(EventModel, blank = True, related_name='branch_events')
 
-	events      = models.ManyToManyField(EventModel, blank = True)
+	pages_types     = models.ManyToManyField(PageModel, blank = True, related_name='branch_pages')
 
-	pages       = models.ManyToManyField(PageModel, blank = True)
+	images          = models.ManyToManyField(ImageModel, blank = True, related_name='branch_images')
 
-	images      = models.ManyToManyField(ImageModel, blank = True)
+	def description(self, lang : str) -> List[str]:
+
+		description = [content_model.content(lang) for content_model in self.description_ids.all()]
+
+		return description
+
+	def departments(self) -> List[DepartmentModel]:
+
+		return self.departments_ids.all()
+
+	def events(self) -> List[EventModel]:
+
+		return self.events_ids.all()
+
+	def pages(self) -> List[PageModel]:
+
+		return self.pages_types.all()
+
+	def toEntity(self, lang : str) -> Branch:
+
+		pages = [page.toEntity(lang) for page in self.pages()]
+
+		return Branch(self.name, self.description(lang), pages)
 
 	def __str__(self):
 

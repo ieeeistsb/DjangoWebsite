@@ -22,4 +22,6 @@ admin.site.register(PageModel)
 
 admin.site.register(TeamModel)
 
+admin.site.register(TeamMemberModel)
+
 admin.site.register(TranslatableContentModel)

@@ -1,18 +1,36 @@
 from django.db import models
 
+from typing import List
+
 from .Image import ImageModel
 
 from .TranslatableContent import TranslatableContentModel
 
+from ....entities import Event
+
 class EventModel(models.Model):
 
-	name  = models.CharField(max_length = 50)
+	name            = models.CharField(max_length = 50)
 
-	date  = models.DateTimeField()
+	date_time       = models.DateTimeField()
 
-	image = models.ForeignKey(ImageModel, on_delete=models.CASCADE)
+	image_id        = models.ForeignKey(ImageModel, on_delete=models.CASCADE)
 
-	description = models.ManyToManyField(TranslatableContentModel, blank = True)
+	description_ids = models.ManyToManyField(TranslatableContentModel, blank = True, related_name='event_description')
+
+	def image(self) -> List[ImageModel]:
+
+		return self.image_id.all()
+
+	def description(self, lang : str) -> List[str]:
+
+		description = [content_model.content(lang) for content_model in self.description_ids.all()]
+
+		return description
+
+	def toEntity(self, lang : str) -> Event:
+
+		return Event(self.name, str(self.date_time), self.description(lang), self.image().url())
 
 	def __str__(self):
 

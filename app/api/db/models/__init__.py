@@ -8,7 +8,7 @@ from .Event import EventModel
 
 from .Book import BookModel
 
-from .Team import TeamModel
+from .Team import TeamModel, TeamMemberModel
 
 from .Member import MemberModel
 
