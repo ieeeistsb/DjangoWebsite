@@ -19,12 +19,13 @@ export const setStore = (name: string, content, maxAge = null) => {
 
 	storage.setItem(name, content);
 
+	/*
 	if (maxAge && !isNaN(parseInt(maxAge))) {
 
 		const timeout = new Date().getTime() / 1000;
 		storage.setItem(`${name}_expire`, timeout + maxAge)
 		
-	}
+	}*/
 };
 
 /**
@@ -38,7 +39,7 @@ export const getStore = (name: string) => {
 	if (!name) return;
 
 	const content = sessionStorage.getItem(name);
-	const _expire = parseInt(window.sessionStorage.getItem(`${name}_expire`));
+	/*const _expire = parseInt(window.sessionStorage.getItem(`${name}_expire`));
 
 	if (_expire) {
 		const now = new Date().getTime() / 1000;
@@ -50,7 +51,7 @@ export const getStore = (name: string) => {
 
 		}
 
-	}
+	}*/
 
 	try {
 
@@ -72,7 +73,7 @@ export const clearStore = (name) => {
 	if (!name) return;
 
 	sessionStorage.removeItem(name);
-	sessionStorage.removeItem(`${name}_expire`);
+	// sessionStorage.removeItem(`${name}_expire`);
 };
 
 /**

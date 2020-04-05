@@ -18,4 +18,11 @@ export abstract class ApiBase {
 			url: options.endpoint + options.parameters,
 		});
 	}
+
+	protected static async get<T>(options: Options<T>): Promise<any> {
+		return axios({
+			method: 'GET',
+			url: options.endpoint + options.parameters,
+		});
+	}
 }

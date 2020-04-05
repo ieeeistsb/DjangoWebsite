@@ -16,15 +16,17 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-			ts:  [
-				{
-					loader: 'ts-loader',
-					options: {
-					appendTsSuffixTo: [/\.vue$/]
-				}
-			}]
-          }
+			      ts:  [
+				      {
+					      loader: 'ts-loader',
+					      options: {
+					        appendTsSuffixTo: [/\.vue$/]
+			      	   }
+			        }
+            ]
+          },
           // other vue-loader options go here
+          transpileDependencies: ['vuex-module-decorators']
         }
       },
       {

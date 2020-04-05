@@ -8,10 +8,13 @@ import { environment } from './environments.ts';
 import { Branch, Book } from './entities.ts';
 
 // @ts-ignore
-// import GetBranchIO from './io/GetBranchIO.ts';
+import GetBranchIO from './io/GetBranchIO.ts';
 
 // @ts-ignore
 import GetBranchBooksIO from './io/GetBranchBooksIO.ts';
+// @ts-ignore
+import GetBranchEventsIO from './io/GetBranchEventsIO.ts';
+
 
 export default class BranchApi extends ApiBase {
 
@@ -21,7 +24,7 @@ export default class BranchApi extends ApiBase {
 		super(BranchApi.URL_BASE);
 	}
 
-	/*public static async get_branch(): Promise<any> {
+	public static async get_branch(): Promise<any> {
 
 		const io_handler : GetBranchIO = new GetBranchIO();
 
@@ -42,7 +45,31 @@ export default class BranchApi extends ApiBase {
 					reject(io_handler.errorSerializer(err));
 				})
 		});
-	}*/
+	}
+
+	public static async get_branch_events(): Promise<any> {
+
+		const io_handler : GetBranchEventsIO = new GetBranchEventsIO();
+
+		const promise = super.doList<string>({
+			endpoint: BranchApi.URL_BASE + environment.branch_events_list_endpoint,
+			parameters: io_handler.requestSerializer('pt'),
+		} as Options<string>);
+
+		return new Promise<any>((resolve, reject) => {
+
+			promise.then((resp) => {
+					const data = JSON.parse(JSON.stringify(resp.data));
+					if (data) {
+						resolve(io_handler.responseSerializer(data));
+					}
+				})
+				.catch((err) => {
+					reject(io_handler.errorSerializer(err));
+				})
+		});
+
+	}
 
 	public static async get_branch_books(): Promise<any> {
 

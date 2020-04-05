@@ -7,13 +7,7 @@ import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 
 // @ts-ignore
-import AppModule from './api/store/modules/app.ts';
-
-// @ts-ignore
-import CommunityModule from './api/store/modules/community.ts';
-
-// @ts-ignore
-import { getStore } from './api/store/handler.ts';
+import { getStore } from './api/storage/handler.ts';
 
 NProgress.configure({ showSpinner: true, }); // NProgress Configuration
 

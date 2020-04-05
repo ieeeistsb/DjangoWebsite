@@ -32,7 +32,7 @@
 
 	import { Event } from '../api/entities.ts';
 
-	import CommunityModule from '../api/store/modules/community.ts';
+	import CommunityModule from '../api/storage/modules/community.ts';
 
 	import CommunityApi from '../api/CommunityApi.ts';
 
@@ -41,6 +41,18 @@
 
 		@Prop({ required: true, })
 		public tag: string;
+
+		public events: Event[] = [];
+
+		async created() {
+
+			this.events = (await CommunityApi.get_community_events(this.tag)).reverse();
+
+			// const community_module = new CommunityModule(this.tag);
+
+			// community_module.addEvents(this.events);
+
+		}
 
 		public getEvents() {
 

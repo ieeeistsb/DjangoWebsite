@@ -35,6 +35,8 @@
 <script lang='ts'>
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
+	import BranchApi from '../api/BranchApi.ts';
+
 	interface Event {
 		name: string;
 		description: string;
@@ -44,14 +46,16 @@
 	@Component({})
 	export default class EventsCarousel extends Vue {
 
-		public events: Event[] = [
+		/*public events: Event[] = [
 			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
 			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'},
 			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
 			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'},
 			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
 			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'}
-		];
+		];*/
+
+		public events: Event[] = [];
 
 		public poker: Event[][] = [];
 
@@ -70,7 +74,10 @@
 
 		}
 
-		public beforeMount() {
+		async created() {
+
+			this.events = (await BranchApi.get_branch_events()).reverse();
+
 			this.generateCarousel();
 		}
 

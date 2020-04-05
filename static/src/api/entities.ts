@@ -1,8 +1,3 @@
-export interface App {
-	device : string;
-	lang   : string;
-}
-
 export interface Branch {
 	name : string;
 	tag  : string;

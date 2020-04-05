@@ -9,7 +9,7 @@
 			</h1>
 			<p>&nbsp;</p>
 			<p class='m-about-text'>
-				<span>O <strong>IEEE IST Student Branch</strong> é um grupo associativo autónomo do Instituto Superior Técnico e que faz parte da organização global IEEE. O seu foco é no desenvolvimento de iniciativas e eventos inovadores nas áreas que estão a faltar a educação académica, e que vão desde a formação em capacidades técnicas, até providenciar as melhores oportunidades de estágios.
+				<span>O <strong>IEEE IST Student Branch</strong>é um grupo associativo autónomo do Instituto Superior Técnico e que faz parte da organização global IEEE. O seu foco é no desenvolvimento de iniciativas e eventos inovadores nas áreas que estão a faltar a educação académica, e que vão desde a formação em capacidades técnicas, até providenciar as melhores oportunidades de estágios.
 				</span>
 			</p>
 			<p class='m-about-text'>

@@ -59,7 +59,11 @@
 
 	import EventsCarousel from '../components/EventsCarousel.vue';
 
-	import CommunityModule from '../api/store/modules/community.ts';
+	import { Community } from '../api/entities.ts';
+
+	import CommunityApi from '../api/CommunityApi.ts';
+
+	import CommunityModule from '../api/storage/modules/community.ts';
 
 	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class AboutView extends Vue {
@@ -67,7 +71,13 @@
 		@Prop({ required: true, })
 		public tag: string;
 
+		public community: Community;
+
 		public images: string[] = ['header.jpg'];
+
+		async created() {
+			this.community = (await CommunityApi.get_community(this.tag)).reverse();
+		}
 
 		public returnClass(idx) : string {
 

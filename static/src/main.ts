@@ -5,12 +5,16 @@ import App from './App.vue';
 import router from './router.ts';
 
 // @ts-ignore
+import store from './store.ts';
+
+// @ts-ignore
 import Initializer from './config/bootstrap.ts';
 
 // import './permission.ts'; // permission control
 
 new Vue({
 	router,
+	store,
 	beforeCreate() {
 		Initializer();
 	},

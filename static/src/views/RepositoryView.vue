@@ -54,7 +54,7 @@
 
 	import { Book } from '../api/entities.ts';
 
-	import BranchModule from '../api/store/modules/branch.ts';
+	import BranchModule from '../api/storage/modules/branch.ts';
 
 	@Component({ components: { 'book-card': BookCard, }, })
 	export default class RepositoryView extends Vue {

@@ -16,7 +16,7 @@
 
 	import { Community } from '../api/entities.ts';
 
-	import CommunityModule from '../api/store/modules/community.ts';
+	import CommunityModule from '../api/storage/modules/community.ts';
 
 	import CommunityApi from '../api/CommunityApi.ts';
 
@@ -27,50 +27,16 @@
 
 		public communities: Community[] = [];
 
-		public beforeMount() {
+		async created() {
 
-			CommunityApi.get_communities()
-				.then((resp) => {
-					
-					this.communities = resp;
+			this.communities = (await CommunityApi.get_communities()).reverse();
 
-					this.communities.forEach((community) => {
-						CommunityModule.addCommunity(community);
-					});
-					
-					this.communities.forEach((community) => {
-						this.getEvents(community.tag);
-					});
-				})
-				.catch((err) => console.error(err));
+			this.communities.forEach((community) => {
+				CommunityModule.addCommunity(community);
+			});
 
 		}
 
-
-		public getEvents(community_tag: string) {
-
-			const community_module = new CommunityModule(community_tag);
-
-			CommunityApi.get_community_events(community_tag)
-				.then((resp) => {
-
-					community_module.addEvents(resp);
-					
-				})
-				.catch((err) => console.error(err));
-		}
-
-		public getBooks() {
-
-			BranchApi.get_branch_books()
-				.then((resp) => {
-
-					console.debug(resp);
-
-				})
-				.catch((err) => console.error(err));
-
-		}
 	}
 </script>
 

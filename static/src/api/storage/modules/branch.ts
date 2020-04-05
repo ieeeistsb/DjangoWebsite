@@ -13,7 +13,7 @@ export default class BranchModule {
 		this._branch = getStore('IST');
 	}
 
-	public static setBranch(branch: Branch) { setStore(branch.tag, JSON.stringify(branch), 500); }
+	public static setBranch(branch: Branch) { setStore(branch.tag, JSON.stringify(branch)); }
 
 	public get branch() : Branch { return this._branch; }
 	
@@ -21,7 +21,7 @@ export default class BranchModule {
 	public get tag()    : string         { return this._branch.tag; }
 	public get books()  : Book[]         { return this._branch.books; }
 
-	public setBranch(branch: Branch) { this._branch = branch; setStore(branch.tag, JSON.stringify(this._branch), 500); }
+	public setBranch(branch: Branch) { this._branch = branch; setStore(branch.tag, JSON.stringify(this._branch)); }
 
-	public addBooks(books: Book[]) { this._branch.books = books; setStore(this._branch.tag, JSON.stringify(this._branch), 500); }
+	public addBooks(books: Book[]) { this._branch.books = books; setStore(this._branch.tag, JSON.stringify(this._branch)); }
 }

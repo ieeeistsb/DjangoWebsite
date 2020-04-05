@@ -14,7 +14,7 @@
 <script lang='ts'>
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
-	import CommunityModule from '../api/store/modules/community.ts';
+	import CommunityModule from '../api/storage/modules/community.ts';
 
 	@Component({})
 	export default class CommunityView extends Vue {

@@ -8,6 +8,9 @@ import { environment } from './environments.ts';
 import { Community } from './entities.ts';
 
 // @ts-ignore
+import GetCommunityIO from './io/GetCommunityIO.ts';
+
+// @ts-ignore
 import GetCommunitiesIO from './io/GetCommunitiesIO.ts';
 
 // @ts-ignore
@@ -19,6 +22,29 @@ export default class CommunityApi extends ApiBase {
 
 	public constructor() {
 		super(CommunityApi.URL_BASE);
+	}
+
+	public static async get_community(tag: string): Promise<any> {
+
+		const io_handler : GetCommunityIO = new GetCommunityIO();
+
+		const promise = super.get<string>({
+			endpoint: CommunityApi.URL_BASE + environment.community_endpoint,
+			parameters: io_handler.requestSerializer('pt', tag),
+		} as Options<string>);
+
+		return new Promise<any>((resolve, reject) => {
+
+			promise.then((resp) => {
+					const data = JSON.parse(JSON.stringify(resp.data));
+					if (data) {
+						resolve(io_handler.responseSerializer(data));
+					}
+				})
+				.catch((err) => {
+					reject(io_handler.errorSerializer(err));
+				})
+		});
 	}
 
 	public static async get_communities(): Promise<any> {
