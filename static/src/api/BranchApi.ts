@@ -24,13 +24,13 @@ export default class BranchApi extends ApiBase {
 		super(BranchApi.URL_BASE);
 	}
 
-	public static async get_branch(): Promise<any> {
+	public static async get_branch(lang: string): Promise<any> {
 
 		const io_handler : GetBranchIO = new GetBranchIO();
 
 		const promise = super.doList<string>({
 			endpoint: BranchApi.URL_BASE + environment.branch_endpoint,
-			parameters: io_handler.requestSerializer('pt'),
+			parameters: io_handler.requestSerializer(lang),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {
@@ -47,13 +47,13 @@ export default class BranchApi extends ApiBase {
 		});
 	}
 
-	public static async get_branch_events(): Promise<any> {
+	public static async get_branch_events(lang: string): Promise<any> {
 
 		const io_handler : GetBranchEventsIO = new GetBranchEventsIO();
 
 		const promise = super.doList<string>({
 			endpoint: BranchApi.URL_BASE + environment.branch_events_list_endpoint,
-			parameters: io_handler.requestSerializer('pt'),
+			parameters: io_handler.requestSerializer(lang),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {
@@ -71,13 +71,13 @@ export default class BranchApi extends ApiBase {
 
 	}
 
-	public static async get_branch_books(): Promise<any> {
+	public static async get_branch_books(lang: string): Promise<any> {
 
 		const io_handler : GetBranchBooksIO = new GetBranchBooksIO();
 
 		const promise = super.doList<string>({
 			endpoint: BranchApi.URL_BASE + environment.branch_books_list_endpoint,
-			parameters: io_handler.requestSerializer('pt'),
+			parameters: io_handler.requestSerializer(lang),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {

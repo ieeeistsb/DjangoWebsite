@@ -80,8 +80,5 @@ export const clearStore = (name) => {
  * Clear all storage
  */
 export const clearAll = () => {
- 	
- 	if (!name) return;
-
 	sessionStorage.clear();
 };

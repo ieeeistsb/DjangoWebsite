@@ -15,7 +15,11 @@
 
 					<h5 class='card-title'>{{event.name}}</h5>
 
-					<p><strong>Data: </strong><span class='card-text'>{{event.date}}</span></p>
+					<p>
+						<span class='card-text'>
+							<strong>{{lang==='pt' ? 'Data' : 'Date'}}: </strong>{{event.date}}
+						</span>
+					</p>
 
 					<p v-for='paragraph in event.description' class='card-text'>{{paragraph}}</p>
 
@@ -39,6 +43,8 @@
 
 		@Prop({ required: true, })
 		public event : Event;
+
+		public lang: string = this.$store.getters.getLang;
 
 	}
 

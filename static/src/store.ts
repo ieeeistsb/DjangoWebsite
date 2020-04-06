@@ -17,14 +17,15 @@ const state: State = {
 const store = {
 	state: state,
 	mutations: {
-		setDevice(state: State, device: string) {
-			state.device = device;
-		},
-		setLang(state: State, lang: string) {
-			state.lang = lang;
+		lang(state: State, new_lang: string) {
+			state.lang = new_lang;
 		}
 	},
-	actions: {},
+	actions: {
+		lang({ commit }, new_lang) {
+			commit('lang', new_lang);
+		}
+	},
 	getters: {
 		isDesktop(state: State): boolean {
 			return state.device === 'desktop';
@@ -33,7 +34,7 @@ const store = {
 			return state.device;
 		},
 		getLang(state: State): string {
-			return  state.lang;
+			return state.lang;
 		}
 	}
 };

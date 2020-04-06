@@ -2,7 +2,7 @@
 import { PageLayout } from '../layouts/index.ts';
 
 // @ts-ignore
-import { NotFoundView, HomeView, CommunityView, AboutView, TeamView, MembersView, EventsView, RepositoryView } from '../views/index.ts';
+import { NotFoundView, HomeView, CommunityView, AboutView, TeamView, MembersView, EventsView } from '../views/index.ts';
 
 export const asyncRouterMap = [];
 
@@ -47,11 +47,6 @@ export const constantRouterMap = [
 				]
 			},
 			{
-				path: 'repository',
-				component: RepositoryView,
-				meta: { title: 'Repository', type: 'repository', },
-			},
-			{
 				path: 'team',
 				component: TeamView,
 				meta: { title: 'Team', type: 'team', },
@@ -61,7 +56,7 @@ export const constantRouterMap = [
 	{
 		path: '*',
 		name: 'http404',
-		component: NotFoundView,
+		redirect: '/home',
 		meta: { title: 'Page Not Found', },
 	}
 ];

@@ -24,13 +24,13 @@ export default class CommunityApi extends ApiBase {
 		super(CommunityApi.URL_BASE);
 	}
 
-	public static async get_community(tag: string): Promise<any> {
+	public static async get_community(tag: string, lang: string): Promise<any> {
 
 		const io_handler : GetCommunityIO = new GetCommunityIO();
 
 		const promise = super.get<string>({
 			endpoint: CommunityApi.URL_BASE + environment.community_endpoint,
-			parameters: io_handler.requestSerializer('pt', tag),
+			parameters: io_handler.requestSerializer(lang, tag),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {
@@ -47,13 +47,13 @@ export default class CommunityApi extends ApiBase {
 		});
 	}
 
-	public static async get_communities(): Promise<any> {
+	public static async get_communities(lang: string): Promise<any> {
 
 		const io_handler : GetCommunitiesIO = new GetCommunitiesIO();
 
 		const promise = super.doList<string>({
 			endpoint: CommunityApi.URL_BASE + environment.communities_list_endpoint,
-			parameters: io_handler.requestSerializer('pt'),
+			parameters: io_handler.requestSerializer(lang),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {
@@ -70,13 +70,13 @@ export default class CommunityApi extends ApiBase {
 		});
 	}
 
-	public static async get_community_events(community_tag: string): Promise<any> {
+	public static async get_community_events(community_tag: string, lang: string): Promise<any> {
 
 		const io_handler : GetCommunityEventsIO = new GetCommunityEventsIO();
 
 		const promise = super.doList<string>({
 			endpoint: CommunityApi.URL_BASE + environment.communities_events_list_endpoint,
-			parameters: io_handler.requestSerializer('pt', community_tag),
+			parameters: io_handler.requestSerializer(lang, community_tag),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {

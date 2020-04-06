@@ -37,7 +37,12 @@
 
 			<div class="row mt-5">
                 <div class="col-12">
-                    <h1 class='m-about-title'><strong><span>Eventos</span></strong></h1>
+                    <h1 class='m-about-title'>
+                    	<strong>
+                    		<span v-if="lang==='pt'">Eventos</span>
+                    		<span v-else>Events</span>
+                    	</strong>
+                    </h1>
                 </div>
             </div>
 
@@ -71,13 +76,9 @@
 		@Prop({ required: true, })
 		public tag: string;
 
-		public community: Community;
+		public lang: string = this.$store.getters.getLang;
 
 		public images: string[] = ['header.jpg'];
-
-		async created() {
-			this.community = (await CommunityApi.get_community(this.tag)).reverse();
-		}
 
 		public returnClass(idx) : string {
 
@@ -105,7 +106,7 @@
     }
 
     .m-about-text {
-        text-align: center;
+        text-align: justify;
         color: #808080;
     }
 

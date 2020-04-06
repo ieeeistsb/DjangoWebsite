@@ -55,6 +55,8 @@
 			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'}
 		];*/
 
+		public lang: string = this.$store.getters.getLang;
+
 		public events: Event[] = [];
 
 		public poker: Event[][] = [];
@@ -76,7 +78,7 @@
 
 		async created() {
 
-			this.events = (await BranchApi.get_branch_events()).reverse();
+			this.events = (await BranchApi.get_branch_events(this.lang)).reverse();
 
 			this.generateCarousel();
 		}

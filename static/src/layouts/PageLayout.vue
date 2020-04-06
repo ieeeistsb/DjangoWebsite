@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<site-header :communities='communities'/>
+		<site-header :communities='communities' @langChanged='onLangChanged'/>
 
 		<router-view/>
 
@@ -29,7 +29,19 @@
 
 		async created() {
 
-			this.communities = (await CommunityApi.get_communities()).reverse();
+			
+			this.communities = (await CommunityApi.get_communities(this.$store.getters.getLang)).reverse();
+
+			this.communities.forEach((community) => {
+				CommunityModule.addCommunity(community);
+			});
+
+
+		}
+
+		public async onLangChanged() {
+
+			this.communities = (await CommunityApi.get_communities(this.$store.getters.getLang)).reverse();
 
 			this.communities.forEach((community) => {
 				CommunityModule.addCommunity(community);

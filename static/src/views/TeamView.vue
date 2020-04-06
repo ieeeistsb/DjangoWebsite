@@ -6,7 +6,7 @@
 
             <div class="row mt-5">
                 <div class="col-12">
-                    <h1 class='m-about-title'><strong><span>Equipa</span></strong></h1>
+                    <h1 class='m-about-title'><strong><span>{{lang==='pt' ? 'Equipa' : 'Team'}}</span></strong></h1>
                 </div>
             </div>
 
@@ -36,7 +36,8 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <p class='m-about-text'>
-                        <span>A nossa equipa é composta por alunos de todos os cursos de Engenharia do Instituto Superior Técnico</span>
+                        <span v-if="lang==='pt'">A nossa equipa é composta por alunos de todos os cursos de Engenharia do Instituto Superior Técnico</span>
+                        <span v-else>Our team consists of students from all Engineering courses at Instituto Superior Técnico</span>
                     </p>
                 </div>
             </div>
@@ -82,6 +83,8 @@
 
 	@Component({ components: { 'member-card': MemberCard, }, })
 	export default class TeamView extends Vue {
+
+        public lang: string = this.$store.getters.getLang;
 
         public images: string[] = ['team.jpg', 'header.jpg', 'team1819.png'];
 

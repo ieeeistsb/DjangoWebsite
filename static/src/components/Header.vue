@@ -21,14 +21,14 @@
 					</li>
 
 					<li class='nav-item'>
-						<a class='nav-link m-community-title' @click="moveTo('/repository')">
-							Repositório
+						<a class='nav-link m-community-title' @click="moveTo('/team')">
+							{{lang==='pt' ? 'Equipa' : 'Team'}}
 						</a>
 					</li>
 
 					<li class='nav-item'>
-						<a class='nav-link m-community-title' @click="moveTo('/team')">
-							Equipa
+						<a class='nav-link m-community-title' @click='toggleLang()'>
+							{{lang}}
 						</a>
 					</li>
 
@@ -43,6 +43,12 @@
 <script lang='ts'>
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
+	import { clearAll } from '../api/storage/handler.ts';
+
+	import CommunityModule from '../api/storage/modules/community.ts';
+
+	import CommunityApi from '../api/CommunityApi.ts';
+
 	import { Community } from '../api/entities.ts';
   
 	@Component({})
@@ -50,6 +56,8 @@
 
 		@Prop({ required: true, })
 		public communities: Community[] = [];
+
+		public lang: string = this.$store.getters.getLang;
 
 		public moveTo(path: string) {
 
@@ -74,6 +82,14 @@
 			this.$router.push({path: toPath, params: { tag: tag, }})
 				.catch((err) => { /* Ignore */ });
 
+		}
+
+		public async toggleLang() {
+			this.lang = this.lang === 'pt' ? 'en' : 'pt';
+			clearAll();
+			await this.$store.dispatch('lang', this.lang);
+			this.$emit('langChanged');
+			this.moveTo('/home');
 		}
 
 	}
