@@ -28,13 +28,11 @@
 
 <script lang='ts'>
 
-	import { Vue, Component, Prop } from 'vue-property-decorator';
+	import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 	import EventCard from '../components/EventCard.vue';
 
 	import { Event } from '../api/entities.ts';
-
-	import CommunityModule from '../api/storage/modules/community.ts';
 
 	import CommunityApi from '../api/CommunityApi.ts';
 
@@ -49,20 +47,20 @@
 		public events: Event[] = [];
 
 		async created() {
-
-			const community_module = new CommunityModule(this.tag);
-
-			if (!community_module.events || community_module.events == []) {
-
+			try {
 				this.events = (await CommunityApi.get_community_events(this.tag, this.lang)).reverse();
-				community_module.addEvents(this.events);
-
-			} else {
-
-				this.events = community_module.events;
-
+			} catch(error) {
+				alert(error);
 			}
+		}
 
+		@Watch('tag')
+		public async onTagUpdate(value, oldValue) {
+			try {
+				this.events = (await CommunityApi.get_community_events(this.tag, this.lang)).reverse();
+			} catch(error) {
+				alert(error);
+			}
 		}
 
 	}

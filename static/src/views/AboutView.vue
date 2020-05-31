@@ -25,6 +25,8 @@
 
 			</div>
 
+			<p>&nbsp;</p>
+
 			<div>
 				<p class='m-about-text' v-for='paragraph in getDescription()'>
 					<span>{{paragraph}}</span>
@@ -33,26 +35,22 @@
 		
 		</div>
 
-		<div id="events_header" class="container">
+		<div id="events_header" class="container" v-if="hasEvents()">
 
 			<div class="row mt-5">
-                <div class="col-12">
-                    <h1 class='m-about-title'>
-                    	<strong>
-                    		<span v-if="lang==='pt'">Eventos</span>
-                    		<span v-else>Events</span>
-                    	</strong>
-                    </h1>
-                </div>
-            </div>
+           	    <div class="col-12">
+           	        <h1 class='m-about-title'>
+           	        	<strong>
+           	        		<span v-if="lang==='pt'">Eventos</span>
+           	        		<span v-else>Events</span>
+           	        	</strong>
+           	        </h1>
+           	    </div>
+           	</div>
 
 		</div>
 
-		<div id="events_content" class="container mt-5">
-
-			<events-carousel/>
-
-		</div>
+		<events-carousel :events="events"/>
 
 	</section>
 
@@ -60,7 +58,7 @@
 
 <script lang='ts'>
 
-	import { Vue, Component, Prop } from 'vue-property-decorator';
+	import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 	import EventsCarousel from '../components/EventsCarousel.vue';
 
@@ -80,6 +78,25 @@
 
 		public images: string[] = ['header.jpg'];
 
+		public events: Event[] = [];
+
+		async created() {
+			try {
+				this.events = (await CommunityApi.get_community_events(this.tag, this.lang)).reverse();
+			} catch(error) {
+				alert(error);
+			}
+		}
+
+		@Watch('tag')
+		public async onTagUpdate(value, oldValue) {
+			try {
+				this.events = (await CommunityApi.get_community_events(this.tag, this.lang)).reverse();
+			} catch(error) {
+				alert(error);
+			}
+		}
+
 		public returnClass(idx) : string {
 
 			if (idx == 0)
@@ -93,6 +110,10 @@
 			const community_module = new CommunityModule(this.tag);
 
 			return community_module.description;
+		}
+
+		public hasEvents(): boolean {
+			return this.events && this.events !== [] && this.events.length !== 0;
 		}
 	}
 

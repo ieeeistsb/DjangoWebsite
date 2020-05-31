@@ -28,14 +28,12 @@
 		public communities: Community[] = [];
 
 		async created() {
-
 			
 			this.communities = (await CommunityApi.get_communities(this.$store.getters.getLang)).reverse();
 
 			this.communities.forEach((community) => {
 				CommunityModule.addCommunity(community);
 			});
-
 
 		}
 

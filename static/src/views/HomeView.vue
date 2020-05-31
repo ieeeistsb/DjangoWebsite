@@ -55,7 +55,7 @@
 		</h1>
 		<p>&nbsp;</p>
 
-		<events-carousel></events-carousel>
+		<events-carousel :events="events"/>
 
 	</div>
 </template>
@@ -63,12 +63,16 @@
 <script lang='ts'>
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
+	import BranchApi from '../api/BranchApi.ts';
+
 	import EventsCarousel from '../components/EventsCarousel.vue';
 
  	@Component({ components: { 'events-carousel': EventsCarousel, }, })
 	export default class HomeView extends Vue {
 
 		public lang: string = this.$store.getters.getLang;
+
+		public events: Event[] = [];
 
 		public unwatch;
 
@@ -79,6 +83,12 @@
 					this.lang = newValue;
 				},
 			);
+
+			try {
+				this.events = (await BranchApi.get_branch_events(this.lang)).reverse();
+			} catch(error) {
+				alert(error);
+			}
 		}
 
 		public beforeDestroy() {
