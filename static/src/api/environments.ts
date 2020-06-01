@@ -10,6 +10,8 @@ export const environment = {
 
 	branch_events_list_endpoint: '/branch/events/',
 
+	branch_departments_list_endpoint: '/branch/departments/',
+
 	branch_books_list_endpoint: '/branch/books/',
 
 	community_endpoint: '/community/',
@@ -17,5 +19,7 @@ export const environment = {
 	communities_list_endpoint: '/communities/',
 
 	communities_events_list_endpoint: '/community/events/',
+
+	communities_departments_list_endpoint: '/community/departments/',
 
 };

@@ -42,7 +42,8 @@ class GetBranchDepartmentsIO:
 
 				members_list.append({
 					"name"  : member.name,
-					"contact" : member.contact,
+					"mail" : member.mail,
+					"linkedin" : member.linkedin,
 					"description" : member.description,
 					"image" : member.image
 					})

@@ -24,11 +24,11 @@ class CommunityModel(models.Model):
 
 	images_ids      = models.ManyToManyField(ImageModel, blank = True)
 
-	pages_types     = models.ManyToManyField(PageModel, blank = True)
+	pages_types_ids = models.ManyToManyField(PageModel, blank = True)
 
 	events_ids      = models.ManyToManyField(EventModel, blank = True)
 
-	departments     = models.ManyToManyField(DepartmentModel, blank = True)
+	departments_ids = models.ManyToManyField(DepartmentModel, blank = True)
 
 	def description(self, lang : str) -> List[str]:
 
@@ -46,17 +46,19 @@ class CommunityModel(models.Model):
 
 	def departments(self) ->List[DepartmentModel]:
 
-		return self.departments.all()
+		return self.departments_ids.all()
 
 	def pages(self) -> List[PageModel]:
 
-		return self.pages_types.all()
+		return self.pages_types_ids.all()
 
 	def toEntity(self, lang : str) -> Community:
 
+		images = [image.url() for image in self.images()]
+
 		pages = [page.toEntity(lang) for page in self.pages()]
 
-		return Community(self.name, self.tag, self.description(lang), pages)
+		return Community(self.name, self.tag, self.description(lang), images, pages)
 
 	def __str__(self):
 

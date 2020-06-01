@@ -19,6 +19,7 @@ export default class CommunityModule {
 
 	public get name()   : string         { return this._community.name; }
 	public get description() : string[]  { return this._community.description; }
+	public get images() : string[]       { return this._community.images; }
 	public get pages()  : Page[]         { return this._community.pages; }
 	public get tag()    : string         { return this._community.tag; }
 	public get events() : Event[]        { return this._community.events; }

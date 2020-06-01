@@ -44,6 +44,7 @@ class GetCommunitiesIO:
 				"name" : c.name,
 				"tag" : c.tag,
 				"description": c.description,
+				"images": c.images,
 				"pages" : pages
 				})
 		

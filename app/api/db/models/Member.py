@@ -12,7 +12,9 @@ class MemberModel(models.Model):
 
 	name            = models.CharField(max_length = 50)
 
-	contact         = models.CharField(max_length = 30)
+	mail            = models.CharField(max_length = 50, default = "")
+
+	linkedin        = models.CharField(max_length = 70, default = "")
 
 	description_ids = models.ManyToManyField(TranslatableContentModel, blank = True)
 
@@ -30,7 +32,7 @@ class MemberModel(models.Model):
 
 	def toEntity(self, lang : str) -> Member:
 
-		return Member(self.name, self.contact, self.description(lang), self.image().url())
+		return Member(self.name, self.mail, self.linkedin, self.description(lang), self.image().url())
 
 	def __str__(self):
 

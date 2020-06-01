@@ -27,8 +27,8 @@
 					</li>
 
 					<li class='nav-item'>
-						<a class='nav-link m-community-title' @click='toggleLang()'>
-							{{lang}}
+						<a class='nav-link m-community-title flag-img' @click='toggleLang()'>
+							<img v-bind:src="lang==='pt' ? '/static/public/assets/icons/ptflag.png' : '/static/public/assets/icons/enflag.png'" class="flag-img" :alt="lang">
 						</a>
 					</li>
 
@@ -121,6 +121,12 @@
 	#header .logo-img {
 		width: 150px;
 		display:block;
+		padding: 0;
+	}
+
+	#header .flag-img {
+		width: 40px;
+		display: block;
 		padding: 0;
 	}
 

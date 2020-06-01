@@ -1,52 +1,37 @@
 <template>
 
-	 	<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-	        
-	        <div class="mainflip">
-	            <div class="frontside">
-	                <div class="card">
-	                    <div class="card-body text-center">
-	                        <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-	                        <h4 class="card-title">{{member.name}}</h4>
-	                        <p class="card-text">{{member.role}}</p>
-	                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-	                    </div>
-	                </div>
-	            </div>
+		<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
 
-	            <div class="backside">
-	                <div class="card">
-	                    <div class="card-body text-center mt-4">
-	                        <h4 class="card-title">{{member.name}}</h4>
-	                        <p class="card-text">{{member.description}}</p>
-	                        <ul class="list-inline">
-		                        <li class="list-inline-item">
-		                        	<a class="social-icon text-xs-center" target="_blank" href="#">
-		                            	<i class="fab fa-facebook"></i>
-		                            </a>
-		                        </li>
-		                        <li class="list-inline-item">
-		                            <a class="social-icon text-xs-center" target="_blank" href="#">
-		                        		<i class="fab fa-twitter"></i>
-		                            </a>
-		                        </li>
-		                        <li class="list-inline-item">
-		                        	<a class="social-icon text-xs-center" target="_blank" href="#">
-		                            	<i class="fab fa-skype"></i>
-		                            </a>
-		                        </li>
-		                        <li class="list-inline-item">
-		                        	<a class="social-icon text-xs-center" target="_blank" href="#">
-		                            	<i class="fab fa-google"></i>
-		                            </a>
-		                        </li>
-	                        </ul>
-	                    </div>
-	                </div>
-	            </div>
-	        
-	        </div>
-	    </div>
+			<div class="mainflip">
+				<div class="frontside">
+					<div class="card">
+						<div class="card-body text-center">
+							<p><img class=" img-fluid" :src="member.image" alt="card image"></p>
+							<h4 class="card-title">{{member.name}}</h4>
+							<p class="card-text">{{member.role}}</p>
+							<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="backside">
+					<div class="card">
+						<div class="card-body text-center mt-4">
+							<h4 class="card-title">{{member.name}}</h4>
+							<p class="card-text">{{member.description}}</p>
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="social-icon text-xs-center" target="_blank" href="#">
+										<i class="fab fa-linkedin"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
 
 </template>
 
@@ -54,12 +39,7 @@
 
 	import { Vue, Component, Prop } from 'vue-property-decorator';
 
-	interface Member {
-		name: string;
-		role: string;
-		description: string;
-		image: string;
-	}
+	import { Member } from '../api/entities.ts';
 
 	@Component({})
 	export default class MemberCard extends Vue {
@@ -182,7 +162,9 @@
 
 	.backside .card .card-text {
 		height: 150px;
-		overflow: scroll;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		text-align: justify;
 	}
 
 	.frontside .card .card-body img {

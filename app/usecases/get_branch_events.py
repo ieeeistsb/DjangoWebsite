@@ -13,6 +13,8 @@ def get_branch_events(io_handler: GetBranchEventsIO, db_handler : DBInterface) -
 
 		branch_events = db_handler.fetch_branch_events(lang)
 
+		branch_events += db_handler.fetch_communities_events(lang)
+
 		return branch_events
 	
 	except Exception as e:

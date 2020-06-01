@@ -11,6 +11,7 @@ export interface Community {
 	name  : string;
 	tag   : string;
 	description ?: string[];
+	images : string[];
 	events  ?: Event[];
 	members ?: Member[];
 	pages : Page[];
@@ -24,8 +25,17 @@ export interface Event {
 }
 
 export interface Member {
-	name : string;
-	social_media ?: string[];
+	name: string;
+	role: string;
+	mail: string;
+	linkedin: string;
+	description: string;
+	image: string;
+}
+
+export interface Department {
+	name: string;
+	members: Member[];
 }
 
 export interface Page {

@@ -69,17 +69,9 @@
 
 	import MemberCard from '../components/MemberCard.vue';
 
-	interface Member {
-		name: string;
-		role: string;
-		description: string;
-		image: string;
-	}
+    import BranchApi from '../api/BranchApi.ts';
 
-    interface Department {
-        name: string;
-        members: Member[];
-    }
+    import { Member, Department } from '../api/entities.ts';
 
 	@Component({ components: { 'member-card': MemberCard, }, })
 	export default class TeamView extends Vue {
@@ -88,11 +80,13 @@
 
         public images: string[] = ['team.jpg', 'header.jpg', 'team1819.png'];
 
-		public departments : Department[] = [
+        public departments: Department[] = [];
+
+		/*public departments : Department[] = [
 
             {'name': 'Board', 'members' : 
                 [
-                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'image': 'JoanaNapoles2.jpg'},
+                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. \n\n\n\nNeste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'image': 'JoanaNapoles2.jpg'},
                 {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'},
                 {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'}
                 ]
@@ -118,7 +112,15 @@
                 {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'}
                 ]
             }
-        ];
+        ];*/
+
+        async created() {
+            try {
+                this.departments = (await BranchApi.get_branch_departments(this.lang)).reverse();
+            } catch(error) {
+                alert(error);
+            }
+        }
 
         public returnClass(idx) : string {
             if (idx == 0)

@@ -20,7 +20,7 @@ class EventModel(models.Model):
 
 	def image(self) -> List[ImageModel]:
 
-		return self.image_id.all()
+		return self.image_id
 
 	def description(self, lang : str) -> List[str]:
 

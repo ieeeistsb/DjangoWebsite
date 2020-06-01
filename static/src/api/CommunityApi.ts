@@ -16,6 +16,9 @@ import GetCommunitiesIO from './io/GetCommunitiesIO.ts';
 // @ts-ignore
 import GetCommunityEventsIO from './io/GetCommunityEventsIO.ts';
 
+// @ts-ignore
+import GetCommunityDepartmentsIO from './io/GetCommunityDepartmentsIO.ts';
+
 export default class CommunityApi extends ApiBase {
 
 	private static readonly URL_BASE : string = environment.api_url + environment.api_version;
@@ -76,6 +79,29 @@ export default class CommunityApi extends ApiBase {
 
 		const promise = super.doList<string>({
 			endpoint: CommunityApi.URL_BASE + environment.communities_events_list_endpoint,
+			parameters: io_handler.requestSerializer(lang, community_tag),
+		} as Options<string>);
+
+		return new Promise<any>((resolve, reject) => {
+
+			promise.then((resp) => {
+					const data = JSON.parse(JSON.stringify(resp.data));
+					if (data) {
+						resolve(io_handler.responseSerializer(data));
+					}
+				})
+				.catch((err) => {
+					reject(io_handler.errorSerializer(err));
+				})
+		});
+	}
+
+	public static async get_community_departments(community_tag: string, lang: string): Promise<any> {
+
+		const io_handler : GetCommunityDepartmentsIO = new GetCommunityDepartmentsIO();
+
+		const promise = super.doList<string>({
+			endpoint: CommunityApi.URL_BASE + environment.communities_departments_list_endpoint,
 			parameters: io_handler.requestSerializer(lang, community_tag),
 		} as Options<string>);
 

@@ -24,9 +24,9 @@ class BranchModel(models.Model):
 
 	events_ids      = models.ManyToManyField(EventModel, blank = True, related_name='branch_events')
 
-	pages_types     = models.ManyToManyField(PageModel, blank = True, related_name='branch_pages')
+	pages_types_ids = models.ManyToManyField(PageModel, blank = True, related_name='branch_pages')
 
-	images          = models.ManyToManyField(ImageModel, blank = True, related_name='branch_images')
+	images_ids      = models.ManyToManyField(ImageModel, blank = True, related_name='branch_images')
 
 	def description(self, lang : str) -> List[str]:
 
@@ -44,7 +44,7 @@ class BranchModel(models.Model):
 
 	def pages(self) -> List[PageModel]:
 
-		return self.pages_types.all()
+		return self.pages_types_ids.all()
 
 	def toEntity(self, lang : str) -> Branch:
 

@@ -183,35 +183,35 @@ db = {
 			"name"  : "Code Night",
 			"date"  : "01/01/2020",
 			"description" : [19],
-			"image" : "events.jpg"
+			"image" : "/static/public/assets/cs/events.jpg"
 		},
 		{
 			"id"    : 2,
 			"name"  : "Workshop BE",
 			"date"  : "03/05/2019",
 			"description" : [20],
-			"image" : "header.jpg"
+			"image" : "/static/public/assets/cs/header.jpg"
 		},
 		{
 			"id"    : 3,
 			"name"  : "Workshop FE",
 			"date"  : "08/09/2019",
 			"description" : [20],
-			"image" : "header.jpg"
+			"image" : "/static/public/assets/cs/header.jpg"
 		},
 		{
 			"id"    : 4,
 			"name"  : "Food For Thought",
 			"date"  : "06/07/2019",
 			"description" : [19],
-			"image" : "events.jpg"
+			"image" : "/static/public/assets/cs/events.jpg"
 		},
 		{
 			"id"    : 5,
 			"name"  : "Quizz Night",
 			"date"  : "04/12/2019",
 			"description" : [19],
-			"image" : "events.jpg"
+			"image" : "/static/public/assets/cs/events.jpg"
 		}
 	],
 	"pages" : [

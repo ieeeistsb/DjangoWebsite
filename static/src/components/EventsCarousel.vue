@@ -16,7 +16,7 @@
 						<!--Card-->
 						<div class="col-md-4" v-bind:class="returnCardClass(index)" v-for="event in p">
 							<div class="card mb-2">
-								<img v-bind:src="'/static/public/assets/cs/' + event.img" class='card-img-top'>
+								<img v-bind:src="event.img" class='card-img-top'>
 
 								<div class="card-body">
 									<h4 class="card-title">{{event.name}}</h4>

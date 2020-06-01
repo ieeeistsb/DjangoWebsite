@@ -3,12 +3,16 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from django.conf import settings
+
 from ..io import GetBranchEventsIO
 
 from ...usecases import get_branch_events
 
-#from ..db import DBHandler
-from ..mocks import MockDBHandler as DBHandler
+if settings.MOCK_DB:
+	from ..db import DBHandler
+else:
+	from ..mocks import MockDBHandler as DBHandler
 
 class BranchEventsView(APIView):
 

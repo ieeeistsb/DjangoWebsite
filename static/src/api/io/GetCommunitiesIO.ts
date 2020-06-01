@@ -16,6 +16,7 @@ export default class GetCommunitiesIO {
 				'name' : community.name,
 				'tag' : community.tag,
 				'description' : community.description,
+				'images' : community.images,
 				'pages': community.pages,
 			} as Community);
 		});

@@ -20,6 +20,14 @@ class DBHandler(DBInterface):
 
 		return branch_model.toEntity(lang)
 
+	def fetch_branch_events(self, lang : str, tag='IST') -> List[Any]:
+
+		branch_model = BranchModel.objects.get(name=tag)
+
+		events_models = branch_model.events()
+
+		return [event.toEntity(lang) for event in events_models]
+
 	
 	def fetch_branch_departments(self, lang : str, scholar_year='19/20', tag='IST') -> List[Any]:
 
@@ -35,6 +43,17 @@ class DBHandler(DBInterface):
 		communities_models = CommunityModel.objects.all()
 
 		return [community.toEntity(lang) for community in communities_models]
+
+	def fetch_communities_events(self, lang : str) -> List[Any]:
+
+		events = []
+
+		communities_models = CommunityModel.objects.all()
+
+		for community in communities_models:
+			events += self.fetch_community_events(community.tag, lang)
+
+		return events
 
 	def fetch_community_events(self, community_tag : str, lang : str) -> List[Any]:
 

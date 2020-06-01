@@ -7,9 +7,9 @@
 			<div id='imgsCarousel' class='carousel slide' data-ride='carousel'>
 			
 				<div class='carousel-inner'>
-					<div v-bind:class="returnClass(index)" v-for='(img, index) in images'>
+					<div v-bind:class="returnClass(index)" v-for='(img, index) in getImages()'>
 
-						<img v-bind:src="'/static/public/assets/cs/' + img" class='card-img-top d-block w-100'>
+						<img v-bind:src="img" class='card-img-top d-block w-100'>
 
 					</div>
 				</div>
@@ -76,8 +76,6 @@
 
 		public lang: string = this.$store.getters.getLang;
 
-		public images: string[] = ['header.jpg'];
-
 		public events: Event[] = [];
 
 		async created() {
@@ -110,6 +108,13 @@
 			const community_module = new CommunityModule(this.tag);
 
 			return community_module.description;
+		}
+
+		public getImages() {
+
+			const community_module = new CommunityModule(this.tag);
+
+			return community_module.images;
 		}
 
 		public hasEvents(): boolean {

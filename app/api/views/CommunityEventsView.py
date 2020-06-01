@@ -3,13 +3,17 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from django.conf import settings
+
 from ..io import GetCommunityEventsIO
 
 from ...entities import Community
 from ...usecases import get_community_events
 
-#from ..db import DBHandler
-from ..mocks import MockDBHandler as DBHandler
+if settings.MOCK_DB:
+	from ..db import DBHandler
+else:
+	from ..mocks import MockDBHandler as DBHandler
 
 class CommunityEventsView(APIView):
 

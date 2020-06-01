@@ -2,7 +2,7 @@ from django.db import models
 
 class ImageModel(models.Model):
 
-	PATH_BASE = 'app/api/db/imgs/'
+	PATH_BASE = 'images/'
 
 	image = models.ImageField(upload_to = PATH_BASE)
 
