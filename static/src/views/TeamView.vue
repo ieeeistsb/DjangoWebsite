@@ -78,7 +78,7 @@
 
         public lang: string = this.$store.getters.getLang;
 
-        public images: string[] = ['team.jpg', 'header.jpg', 'team1819.png'];
+        public images: string[] = [];
 
         public departments: Department[] = [];
 
@@ -86,30 +86,30 @@
 
             {'name': 'Board', 'members' : 
                 [
-                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. \n\n\n\nNeste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'image': 'JoanaNapoles2.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'}
+                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. \n\n\n\nNeste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image': 'JoanaNapoles2.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'}
                 ]
             },
             {'name': 'Board', 'members' : 
                 [
-                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'image': 'JoanaNapoles2.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'}
+                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image': 'JoanaNapoles2.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'}
                 ]
             },
             {'name': 'Board', 'members' : 
                 [
-                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'image': 'JoanaNapoles2.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'}
+                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image': 'JoanaNapoles2.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'}
                 ]
             },
             {'name': 'Board', 'members' : 
                 [
-                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'image': 'JoanaNapoles2.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'},
-                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'image':'FilipaRocha.jpg'}
+                {'name':'Joana Nápoles', 'role':'Chair', 'description': 'A Joana entrou para o IEEE-IST SB como colaboradora do projeto Younique no início do ano de 2018. No ano de 2018/2019 entrou para a EMBS-IST como Innovation Manager, cargo que ocupa atualmente, como membro ativo na direção. Neste cargo tem a oportunidade de garantir que cada iniciativa e departamento cresça da melhor forma, contribuindo para a motivação de cada equipa e o sucesso dos alunos da nossa instituição. As principais características que a movem são a sua paixão por ajudar o próximo e a sua ambição para fazer o seu melhor em tudo.', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image': 'JoanaNapoles2.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'},
+                {'name':'Filipa Rocha', 'role':'Vice-Chair', 'description': 'Hi, I am asdasdaed', 'mail': 'mail@mail.pt', 'linkedin': 'https://www.linkedin.com/', 'image':'FilipaRocha.jpg'}
                 ]
             }
         ];*/
@@ -117,6 +117,9 @@
         async created() {
             try {
                 this.departments = (await BranchApi.get_branch_departments(this.lang)).reverse();
+
+                this.images = (await BranchApi.get_branch_images()).reverse();
+
             } catch(error) {
                 alert(error);
             }

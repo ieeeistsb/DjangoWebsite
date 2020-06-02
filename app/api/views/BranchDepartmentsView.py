@@ -10,9 +10,9 @@ from ..io import GetBranchDepartmentsIO
 from ...usecases import get_branch_departments
 
 if settings.MOCK_DB:
-	from ..db import DBHandler
-else:
 	from ..mocks import MockDBHandler as DBHandler
+else:
+	from ..db import DBHandler
 
 class BranchDepartmentsView(APIView):
 

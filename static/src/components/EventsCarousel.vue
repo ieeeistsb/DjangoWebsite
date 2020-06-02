@@ -21,7 +21,14 @@
 								<div class="card-body">
 									<h4 class="card-title">{{event.name}}</h4>
 									<p class="card-text">{{event.description[0] + " ..."}}</p>
-									<a href="#" class='btn btn-primary m-btn'>Saber Mais</a>
+									<a 
+									href="#" 
+									class='btn btn-primary m-btn' 
+									data-toggle="modal" 
+									data-target=".bd-example-modal-lg"
+									@click="chageActualEvent(event)">
+										{{lang==='pt' ? 'Saber Mais' : 'More'}}
+									</a>
 								</div>
 
 							</div>
@@ -31,6 +38,7 @@
 					</div>
 
 				</div>
+				<!--/.Slide-->
 
 			</div>
 			<!--/.Slides-->
@@ -53,6 +61,42 @@
 		</div>
 		<!--/.Carousel Wrapper-->
 
+		<!--Event Modal-->
+		<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+
+				<!--Modal Content-->
+				<div class="modal-content">
+
+					<!--Modal Header-->
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">{{lang==='pt' ? 'Evento' : 'Event'}}</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!--/.Modal Header-->
+
+					<!--Modal Body-->
+					<div class="modal-body" v-if="actualEvent">
+						
+						<event-card :event='actualEvent' />
+
+					</div>
+					<!--/.Modal Body-->
+
+					<!--Modal Footer-->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary m-btn" data-dismiss="modal">Close</button>
+					</div>
+					<!--/.Modal Footer-->
+
+				</div>
+				<!--/.Modal Content-->
+			</div>
+		</div>
+		<!--/.Event Modal-->
+
 	</div>
 
 </template>
@@ -60,23 +104,12 @@
 <script lang='ts'>
 	import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
-	interface Event {
-		name: string;
-		description: string;
-		img: string;
-	}
+	import EventCard from '../components/EventCard.vue';
 
-	@Component({})
+	import { Event } from '../api/entities.ts';
+
+	@Component({ components: { 'event-card': EventCard, }, })
 	export default class EventsCarousel extends Vue {
-
-		/*public events: Event[] = [
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'},
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'},
-			{'name': 'Code Night', 'description': 'Vem acabar os projetos com companhia e diversão.', 'img': 'events.jpg'},
-			{'name': 'Quantum Computing', 'description': 'Vem aprender a programar em computadores quanticos.', 'img': 'header.jpg'}
-		];*/
 
 		public lang: string = this.$store.getters.getLang;
 
@@ -84,6 +117,8 @@
 		public events: Event[];
 
 		public trio: Event[][] = [];
+
+		public actualEvent: Event | null = null;
 
 		public generateCarousel() {
 
@@ -125,6 +160,10 @@
 
 		public hasEvents(): boolean {
 			return this.events && this.events !== [] && this.events.length !== 0;
+		}
+
+		public chageActualEvent(event: Event) {
+			this.actualEvent = event;
 		}
 
 	}

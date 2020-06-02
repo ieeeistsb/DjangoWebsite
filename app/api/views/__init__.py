@@ -4,6 +4,8 @@ from .BranchDepartmentsView import BranchDepartmentsView
 
 from .BranchEventsView import BranchEventsView
 
+from .BranchImagesView import BranchImagesView
+
 from .BranchBooksView import BranchBooksView
 
 from .CommunitiesView import CommunitiesView

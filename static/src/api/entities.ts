@@ -1,6 +1,7 @@
 export interface Branch {
 	name : string;
 	tag  : string;
+	images ?: string[];
 	description ?: string[];
 	books ?: Book[];
 	members ?: Member[];

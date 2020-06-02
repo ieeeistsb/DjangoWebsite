@@ -19,6 +19,9 @@ import GetBranchEventsIO from './io/GetBranchEventsIO.ts';
 //@ts-ignore
 import GetBranchDepartmentsIO from './io/GetBranchDepartmentsIO.ts';
 
+//@ts-ignore
+import GetBranchImagesIO from './io/GetBranchImagesIO.ts';
+
 
 export default class BranchApi extends ApiBase {
 
@@ -97,6 +100,29 @@ export default class BranchApi extends ApiBase {
 				})
 		});
 
+	}
+
+	public static async get_branch_images(): Promise<any> {
+
+		const io_handler : GetBranchImagesIO = new GetBranchImagesIO();
+
+		const promise = super.doList<string>({
+			endpoint: BranchApi.URL_BASE + environment.branch_images_list_endpoint,
+			parameters: io_handler.requestSerializer(),
+		} as Options<string>);
+
+		return new Promise<any>((resolve, reject) => {
+
+			promise.then((resp) => {
+					const data = JSON.parse(JSON.stringify(resp.data));
+					if (data) {
+						resolve(io_handler.responseSerializer(data));
+					}
+				})
+				.catch((err) => {
+					reject(io_handler.errorSerializer(err));
+				})
+		});
 	}
 
 	public static async get_branch_books(lang: string): Promise<any> {

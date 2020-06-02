@@ -21,8 +21,13 @@
 							<p class="card-text">{{member.description}}</p>
 							<ul class="list-inline">
 								<li class="list-inline-item">
-									<a class="social-icon text-xs-center" target="_blank" href="#">
+									<a class="social-icon text-xs-center" target="_blank" :href="member.linkedin">
 										<i class="fab fa-linkedin"></i>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="social-icon text-xs-center" target="_blank" :href="'mailto:' + member.mail">
+										<i class="fas fa-envelope mr-3"></i>
 									</a>
 								</li>
 							</ul>

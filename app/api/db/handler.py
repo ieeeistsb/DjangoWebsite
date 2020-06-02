@@ -37,6 +37,13 @@ class DBHandler(DBInterface):
 
 		return [department.toEntity(lang, scholar_year) for department in departments_models]
 
+	def fetch_branch_images(self, tag='IST') -> List[str]:
+
+		branch_model = BranchModel.objects.get(name=tag)
+
+		images_models = branch_model.images()
+
+		return [image.url() for image in images_models]
 
 	def fetch_communities(self, lang : str) -> List[Any]:
 

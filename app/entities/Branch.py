@@ -7,10 +7,11 @@ from . import Page
 @dataclass
 class Branch:
 
-	__slots__ = '_name', '_description', '_pages'
+	__slots__ = '_name', '_description', '_images', '_pages'
 
 	_name : str
 	_description : List[str]
+	_images : List[str]
 	_pages : List[Any]
 	
 	@property
@@ -21,6 +22,9 @@ class Branch:
 	def description(self):
 		return self._description
 	
+	@property
+	def images(self):
+		return self._images
 
 	@property
 	def pages(self):
@@ -28,11 +32,12 @@ class Branch:
 	
 	@classmethod
 	def from_dict(cls, obj):
-		return Branch(obj['name'], obj['description'], obj['pages'])
+		return Branch(obj['name'], obj['description'], obj['images'], obj['pages'])
 
 	def dict(self):
 		return {
 			'name': self.name,
 			'description': self.description,
+			'images' : self.images,
 			'pages' : self.pages
 		}

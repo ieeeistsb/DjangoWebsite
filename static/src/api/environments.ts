@@ -12,6 +12,8 @@ export const environment = {
 
 	branch_departments_list_endpoint: '/branch/departments/',
 
+	branch_images_list_endpoint: '/branch/images/',
+
 	branch_books_list_endpoint: '/branch/books/',
 
 	community_endpoint: '/community/',

@@ -10,9 +10,9 @@ from ..io import GetCommunitiesIO
 from ...usecases import get_communities
 
 if settings.MOCK_DB:
-	from ..db import DBHandler
-else:
 	from ..mocks import MockDBHandler as DBHandler
+else:
+	from ..db import DBHandler
 
 class CommunitiesView(APIView):
 

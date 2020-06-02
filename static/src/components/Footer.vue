@@ -25,7 +25,7 @@
 					<!-- Grid column -->
 					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
 							
-						<h6 class="text-uppercase text-white font-weight-bold">Comunidades</h6>
+						<h6 class="text-uppercase text-white font-weight-bold">{{lang==='pt' ? 'Comunidades' : 'Communities'}}</h6>
 						<p v-for='community in communities'>
 							<a @click='moveToCommunity(community.tag, null)'>{{community.tag}}</a>
 						</p>
@@ -37,12 +37,9 @@
 					<!-- Grid column -->
 					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
 
-						<h6 class="text-uppercase text-white font-weight-bold">Links uteis</h6>
-						<p> <a href="#!">Eventos</a> </p>
-						<p> <a href="#!">TISP 2.0</a> </p>
-						<p> <a href="#!">Respositorio</a> </p>
-						<p> <a href="#!">Galeria</a> </p>
-						<p> <a href="#!">Membros</a> </p>
+						<h6 class="text-uppercase text-white font-weight-bold">{{lang==='pt' ? 'LINKS ÚTEIS' : 'USEFULL LINKS'}}</h6>
+						<p> <a href="https://www.flickr.com/photos/158427700@N03/albums/with/72157666756691928">{{lang==='pt' ? 'Galeria' : 'Gallery'}}</a> </p>
+						<p> <a @click="moveTo('/team')">{{lang==='pt' ? 'Equipa' : 'Team'}}</a> </p>
 
 					</div>
 					<!-- Grid column -->
@@ -52,7 +49,7 @@
 					<!-- Grid column -->
 					<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
 
-						<h6 class="text-uppercase text-white font-weight-bold">Contactos</h6>
+						<h6 class="text-uppercase text-white font-weight-bold">{{lang==='pt' ? 'Contactos' : 'Contacts'}}</h6>
 						<p> <i class="fas fa-home mr-3"></i> Alameda Av. Rovisco Pais, 11049-001 Lisboa Portugal</p>
 						<p> <i class="fas fa-home mr-3"></i> Taguspark Av. Prof. Doutor Cavaco Silva, 2744-016 Porto Salvo Portugal</p>
 						<p> <i class="fas fa-envelope mr-3"></i> contact@ieee-ist.org</p>
@@ -156,6 +153,12 @@
 		public date: Date = new Date();
 
 		public year: number = this.date.getFullYear();
+
+		public moveTo(path: string) {
+
+			this.$router.push(path)
+				.catch((err) => { /* Ignore */ });
+		}
 
 		public moveToCommunity(tag: string, type: string) {
 

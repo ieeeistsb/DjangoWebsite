@@ -19,6 +19,7 @@ export default class BranchModule {
 	
 	public get name()   : string         { return this._branch.name; }
 	public get tag()    : string         { return this._branch.tag; }
+	public get images() : string[]       { return this._branch.images; }
 	public get books()  : Book[]         { return this._branch.books; }
 
 	public setBranch(branch: Branch) { this._branch = branch; setStore(branch.tag, JSON.stringify(this._branch)); }

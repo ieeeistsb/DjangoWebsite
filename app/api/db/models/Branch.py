@@ -42,15 +42,21 @@ class BranchModel(models.Model):
 
 		return self.events_ids.all()
 
+	def images(self) -> List[str]:
+
+		return self.images_ids.all()
+
 	def pages(self) -> List[PageModel]:
 
 		return self.pages_types_ids.all()
 
 	def toEntity(self, lang : str) -> Branch:
 
+		images = [image.url() for image in self.images()]
+
 		pages = [page.toEntity(lang) for page in self.pages()]
 
-		return Branch(self.name, self.description(lang), pages)
+		return Branch(self.name, self.description(lang), images, pages)
 
 	def __str__(self):
 

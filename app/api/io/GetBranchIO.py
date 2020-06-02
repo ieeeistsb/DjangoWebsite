@@ -40,6 +40,7 @@ class GetBranchIO:
 		response_branch = {
 			"name" : branch.name,
 			"description" : branch.description,
+			"images" : branch.images,
 			"pages" : pages,
 		}
 		
