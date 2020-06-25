@@ -71,7 +71,7 @@
 
 					<!--Copyright-->
 					<p class="text-center text-md-left">© 2020 Copyright:
-						<a href="https://mdbootstrap.com/education/bootstrap/">
+						<a href="https://ieee-ist.org/">
 							<strong>ieee-ist.org</strong>
 						</a>
 					</p>
@@ -149,6 +149,8 @@
 
 		@Prop({ required: true, })
 		public communities: Community[];
+
+		public lang: string = this.$store.getters.getLang;
 
 		public date: Date = new Date();
 

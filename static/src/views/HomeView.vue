@@ -103,7 +103,7 @@
 	.home-img {
 		width: 100%;
 		height: 100%;
-		margin: -200px 0px 0px 0px;
+		margin: 0px 0px 0px 0px;
 	}
 
 	.m-about-title {

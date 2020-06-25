@@ -131,8 +131,7 @@
 	}
 
 	.ml-auto .dropdown-menu {
-    	left: auto !important;
-    	right: 0px;
+		left: auto !important;
 	}
 
 	#header .m-community-title {
