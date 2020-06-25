@@ -18,7 +18,12 @@
 					<div class="card">
 						<div class="card-body text-center mt-4">
 							<h4 class="card-title">{{member.name}}</h4>
-							<p class="card-text">{{member.description}}</p>
+							<p class='card-text'>
+								<span v-for='paragraph in member.description'>
+									{{paragraph}}
+									<br><br>
+								</span>
+							</p>
 							<ul class="list-inline">
 								<li class="list-inline-item">
 									<a class="social-icon text-xs-center" target="_blank" :href="member.linkedin">

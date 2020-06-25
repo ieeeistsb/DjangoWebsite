@@ -15,7 +15,7 @@
 
                     <div class='carousel-inner'>
                         <div v-bind:class="returnClass(index)" v-for='(img, index) in images'>
-                            <img v-bind:src="'/static/public/assets/cs/' + img" class='card-img-top d-block w-100'>
+                            <img v-bind:src="img" class='card-img-top d-block w-100'>
                         </div>
 
                     </div>

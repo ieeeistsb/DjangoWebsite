@@ -35,7 +35,7 @@
 
 <script lang='ts'>
 
-	import { Vue, Component, Prop } from 'vue-property-decorator';
+	import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 	import MemberCard from '../components/MemberCard.vue';
 
@@ -85,6 +85,15 @@
         ];*/
 
         async created() {
+            try {
+                this.departments = (await CommunityApi.get_community_departments(this.tag, this.lang)).reverse();
+            } catch(error) {
+                alert(error);
+            }
+        }
+
+        @Watch('tag')
+        public async onTagUpdate(value, oldValue) {
             try {
                 this.departments = (await CommunityApi.get_community_departments(this.tag, this.lang)).reverse();
             } catch(error) {
