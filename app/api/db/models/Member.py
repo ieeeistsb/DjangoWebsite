@@ -30,9 +30,9 @@ class MemberModel(models.Model):
 
 		return self.image_id
 
-	def toEntity(self, lang : str) -> Member:
+	def toEntity(self, lang : str, role : str = "") -> Member:
 
-		return Member(self.name, self.mail, self.linkedin, self.description(lang), self.image().url())
+		return Member(self.name, role, self.mail, self.linkedin, self.description(lang), self.image().url())
 
 	def __str__(self):
 

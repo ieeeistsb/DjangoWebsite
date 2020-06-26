@@ -11,8 +11,9 @@ def get_community_departments(io_handler: GetCommunityDepartmentsIO, db_handler 
 
 		lang = io_handler.lang
 		community = io_handler.community
+		scholar_year = io_handler.scholar_year
 
-		community_departments = db_handler.fetch_community_departments(community, lang)
+		community_departments = db_handler.fetch_community_departments(community, lang, scholar_year)
 
 		return community_departments
 	

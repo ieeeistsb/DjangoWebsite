@@ -96,13 +96,13 @@ export default class CommunityApi extends ApiBase {
 		});
 	}
 
-	public static async get_community_departments(community_tag: string, lang: string): Promise<any> {
+	public static async get_community_departments(community_tag: string, lang: string, scholarYear: string): Promise<any> {
 
 		const io_handler : GetCommunityDepartmentsIO = new GetCommunityDepartmentsIO();
 
 		const promise = super.doList<string>({
 			endpoint: CommunityApi.URL_BASE + environment.communities_departments_list_endpoint,
-			parameters: io_handler.requestSerializer(lang, community_tag),
+			parameters: io_handler.requestSerializer(lang, community_tag, scholarYear),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {

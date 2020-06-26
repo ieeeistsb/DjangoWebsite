@@ -8,7 +8,7 @@
 						<div class="card-body text-center">
 							<p><img class=" img-fluid" :src="member.image" alt="card image"></p>
 							<h4 class="card-title">{{member.name}}</h4>
-							<p class="card-text">{{member.role}}</p>
+							<h5 class="card-title">{{member.role.toUpperCase()}}</h5>
 							<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
 						</div>
 					</div>

@@ -3,8 +3,8 @@ import { Department, Member } from '../entities.ts';
 
 export default class GetBranchDepartmentsIO {
 
-	public requestSerializer(lang: string) {
-		return '?lang=' + lang;
+	public requestSerializer(lang: string, scholar_year: string) {
+		return '?lang=' + lang + '&scholar_year=' + scholar_year;
 	}
 
 	public responseSerializer(data) {
@@ -18,6 +18,7 @@ export default class GetBranchDepartmentsIO {
 			department.members.forEach((member) => {
 				members_list.push({
 					'name': member.name,
+					'role' : member.role,
 					'mail' : member.mail,
 					'linkedin' : member.linkedin,
 					'description' : member.description,

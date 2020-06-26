@@ -78,13 +78,13 @@ export default class BranchApi extends ApiBase {
 
 	}
 
-	public static async get_branch_departments(lang: string): Promise<any> {
+	public static async get_branch_departments(lang: string, scholarYear: string): Promise<any> {
 
 		const io_handler : GetBranchDepartmentsIO = new GetBranchDepartmentsIO();
 
 		const promise = super.doList<string>({
 			endpoint: BranchApi.URL_BASE + environment.branch_departments_list_endpoint,
-			parameters: io_handler.requestSerializer(lang),
+			parameters: io_handler.requestSerializer(lang, scholarYear),
 		} as Options<string>);
 
 		return new Promise<any>((resolve, reject) => {

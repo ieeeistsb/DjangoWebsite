@@ -36,6 +36,18 @@ class GetCommunityDepartmentsIO:
 		except Exception as e:
 			# create exceptions (ParameterMissingFromRequest)
 			print(e)
+
+
+	@property
+	def scholar_year(self) -> str:
+
+		try:
+	
+			return self.data.get('scholar_year')
+
+		except Exception as e:
+			# create exceptions (ParameterMissingFromRequest)
+			print(e)
 	
 
 	def requestSerializer(self):
@@ -55,6 +67,7 @@ class GetCommunityDepartmentsIO:
 
 				members_list.append({
 					"name"  : member.name,
+					"role" : member.role,
 					"mail" : member.mail,
 					"linkedin" : member.linkedin,
 					"description" : member.description,

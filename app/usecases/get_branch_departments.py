@@ -10,8 +10,9 @@ def get_branch_departments(io_handler: GetBranchDepartmentsIO, db_handler : DBIn
 	try:
 
 		lang = io_handler.lang
+		scholar_year = io_handler.scholar_year
 
-		branch_departments = db_handler.fetch_branch_departments(lang)
+		branch_departments = db_handler.fetch_branch_departments(lang, scholar_year)
 
 		return branch_departments
 	

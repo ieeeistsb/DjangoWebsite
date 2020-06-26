@@ -5,9 +5,10 @@ from typing import List
 @dataclass
 class Member:
 
-	__slots__ = '_name', '_mail', '_linkedin', '_description', '_image'
+	__slots__ = '_name', '_role', '_mail', '_linkedin', '_description', '_image'
 
 	_name : str
+	_role : str
 	_mail : str
 	_linkedin : str
 	_description : List[str]
@@ -18,13 +19,16 @@ class Member:
 		return self._name
 
 	@property
+	def role(self):
+		return self._role
+
+	@property
 	def mail(self):
 		return self._mail
 
 	@property
 	def linkedin(self):
 		return self._linkedin
-	
 	
 	@property
 	def description(self):
@@ -36,11 +40,12 @@ class Member:
 	
 	@classmethod
 	def from_dict(cls, obj):
-		return Member(obj['name'], obj['mail'], obj['linkedin'], obj['description'], obj['image'])
+		return Member(obj['name'], obj['role'], obj['mail'], obj['linkedin'], obj['description'], obj['image'])
 
 	def dict(self):
 		return {
 			'name' : self.name,
+			'role' : self.role,
 			'mail' : self.mail,
 			'linkedin' : self.linkedin,
 			'description' : self.description,

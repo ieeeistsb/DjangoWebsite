@@ -3,8 +3,8 @@ import { Department, Member } from '../entities.ts';
 
 export default class GetCommunityDepartmentsIO {
 
-	public requestSerializer(lang: string, community_tag: string) {
-		return '?community=' + community_tag + '&lang=' + lang;
+	public requestSerializer(lang: string, community_tag: string, scholar_year: string) {
+		return '?community=' + community_tag + '&lang=' + lang + '&scholar_year=' + scholar_year;
 	}
 
 	public responseSerializer(data) {
@@ -17,7 +17,8 @@ export default class GetCommunityDepartmentsIO {
 
 			department.members.forEach((member) => {
 				members_list.push({
-					'name': member.name,
+					'name' : member.name,
+					'role' : member.role,
 					'mail' : member.mail,
 					'linkedin' : member.linkedin,
 					'description' : member.description,

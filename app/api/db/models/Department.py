@@ -4,6 +4,8 @@ from typing import List
 
 from .Team import TeamModel
 
+from .Team import TeamMemberModel
+
 from .TranslatableContent import TranslatableContentModel
 
 from ....entities import Department
@@ -36,7 +38,17 @@ class DepartmentModel(models.Model):
 
 		team = self.team(scholar_year)
 
-		members = [member.toEntity(lang) for member in team.members()]
+		members = []
+
+		if not team is None:
+
+			for member in team.members():
+
+				role = TeamMemberModel.objects.filter(member_id=member)[0].role
+
+				member_entity = member.toEntity(lang, role)
+
+				members += [member_entity]
 
 		return Department(self.name(lang), members)
 
