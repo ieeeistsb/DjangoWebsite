@@ -30,7 +30,7 @@ export interface Member {
 	role: string;
 	mail: string;
 	linkedin: string;
-	description: string;
+	description: string[];
 	image: string;
 }
 
@@ -52,4 +52,16 @@ export interface Book {
 	quality: string;
 	contact: string;
 	img: string;
+}
+
+export interface News {
+	title: string;
+	year: number;
+	author: string;
+	text: string[];
+}
+
+export interface Initiative {
+	name: string;
+	description: string[];
 }

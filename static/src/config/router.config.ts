@@ -2,7 +2,7 @@
 import { PageLayout } from '../layouts/index.ts';
 
 // @ts-ignore
-import { NotFoundView, HomeView, CommunityView, AboutView, TeamView, MembersView, EventsView, } from '../views/index.ts';
+import { NotFoundView, HomeView, CommunityView, AboutView, TeamView, MembersView, EventsView, NewsletterView, } from '../views/index.ts';
 
 export const asyncRouterMap = [];
 
@@ -44,6 +44,12 @@ export const constantRouterMap = [
 						props: true,
 						meta: { title: 'Events', type: 'events', },
 					},
+					{
+						path: 'newsletter',
+						component: NewsletterView,
+						props: true,
+						meta: { title: 'Newsletter', type: 'newsletter', },
+					}
 				]
 			},
 			{

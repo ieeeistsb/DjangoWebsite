@@ -6,5 +6,6 @@ import TeamView from './TeamView.vue';
 import MembersView from './MembersView.vue';
 import EventsView from './EventsView.vue';
 import RepositoryView from './RepositoryView.vue';
+import NewsletterView from './NewsletterView.vue';
 
-export { HomeView, NotFoundView, CommunityView, AboutView, TeamView, MembersView, EventsView, RepositoryView };
+export { HomeView, NotFoundView, CommunityView, AboutView, TeamView, MembersView, EventsView, RepositoryView, NewsletterView };
